@@ -1,0 +1,25 @@
+.menu {
+    background-color: var(--grey-800);
+    color: var(--white);
+}
+
+.menu_list {
+    display: flex;
+    align-items: center;
+}
+
+.menu_item {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-weight: 600;
+    padding: .7rem .7rem;
+    &.active {
+        background-color: var(--yellow);
+        color: var(--grey-800);
+    }
+    &:not(.active):hover {
+        color: var(--yellow-400);
+    }
+}
+

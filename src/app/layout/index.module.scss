@@ -1,0 +1,17 @@
+main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.content_wrapper {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+}

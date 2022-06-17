@@ -1,24 +1,14 @@
-import { styled } from "solid-styled-components";
 import { Container } from 'app/layout'
+import styles from './index.module.scss'
 
 export const Footer = () => {
   return (
-    <FooterStyles>
-        <Container>
-            Footer
-
-
-        </Container>
-
-
-    </FooterStyles>
+    <footer class={styles.footer}>
+      <Container>
+        Footer
+      </Container>
+    </footer>
   )
 }
 
 
-const FooterStyles = styled.div`
-    background-color: var(--yellow);
-    height: 5rem;
-    color: white;
-    margin-top: auto;
-`

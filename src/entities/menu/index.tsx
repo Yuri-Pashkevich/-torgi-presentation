@@ -1,58 +1,32 @@
-import { styled } from "solid-styled-components";
 import { Container } from 'app/layout'
-import { For } from "solid-js";
+import { For } from "solid-js"
+import styles from './index.module.scss'
 
-const menuItems = ['Все категории', 'Недвижимость', 'Транспорт и запчасти', 'Оборудование', 'Мебель, интерьер', 'Электроника', 'Строительство', 'Нематериальное', 'Иное']
+const menuItems = ['Все категории', 'Недвижимость', 'Транспорт и запчасти', 'Оборудование', 'Мебель, интерьер', 'Электроника', 'Строительство', 'Нематериальное']
 
 export const Menu = () => {
 
-    let menuList: HTMLUListElement | undefined;
+    let menuList: HTMLUListElement | undefined
+
     const handleMenuClick = (e: any) => {
         menuList?.childNodes.forEach((menuItem: any) => {
-            menuItem.classList.remove('active')
+            menuItem.classList.remove(styles.active)
         })
-        e.target.classList.add('active')
+        e.target.classList.add(styles.active)
     }
 
     return (
-        <MenuStyles>
+        <nav class={styles.menu}>
             <Container>
-                <MenuList ref={menuList}>
+                <ul class={styles.menu_list} ref={menuList} >
                     <For each={menuItems}>{(item, index) =>
-                        <MenuItem onClick={handleMenuClick} class={`${index() === 0 ? 'active' : null}`}>
+                        <a onClick={handleMenuClick} class={`${styles.menu_item} ${index() === 0 ? styles.active : ''}`}>
                             {item}
-                        </MenuItem>
+                        </a>
                     }
                     </For>
-                </MenuList>
+                </ul>
             </Container>
-        </MenuStyles>
+        </nav>
     )
 }
-
-
-const MenuStyles = styled.div`
-    background-color: var(--grey-800);
-    color: var(--white);
-    .active {
-        background-color: var(--yellow);
-        color: var(--grey-800);
-    }
-`
-
-const MenuList = styled.ul`
-    display: flex;
-    align-items: center;
-`
-
-const MenuItem = styled.a`
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    cursor: pointer;
-    font-weight: 600;
-    padding: 0.8rem .5rem;
-    &:hover {
-        color: var(--yellow-400);
-        
-    }
-`

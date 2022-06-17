@@ -19,7 +19,6 @@
     "solid-app-router": "^0.4.0",
     "solid-icons": "^0.4.13",
     "solid-js": "^1.4.2",
-    "solid-styled-components": "^0.28.1",
     "vite-tsconfig-paths": "^3.5.0"
   }
 }
