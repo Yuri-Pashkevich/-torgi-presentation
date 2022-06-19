@@ -19,7 +19,11 @@ export const App: Component = () => {
         <Menu />
         <Layout.Content columns={2}>
           <NewsSidebar />
-          <Carousel/>
+          <div style={`overflow: hidden`}>
+            <Carousel/>
+            <Property/>
+
+          </div>
           <Routes>
             <Route path="/property" component={Property}/>
           </Routes>

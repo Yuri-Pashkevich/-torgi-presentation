@@ -13,6 +13,8 @@ export const NewsSidebar = () => {
         <SidebarItem/>
         <SidebarItem/>
         <SidebarItem/>
+        <SidebarItem/>
+
     </aside>
   )
 }

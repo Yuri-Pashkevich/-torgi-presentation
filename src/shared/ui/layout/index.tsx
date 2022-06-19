@@ -57,6 +57,7 @@ export const Page = ({ children, columns }: PageProps) => {
 
   const columnsStyles = `
     display: grid;
+    margin: 1.25rem 0;
     gap: 1.25rem;
     grid-template-columns: repeat(${columns}, 1fr)
   `
