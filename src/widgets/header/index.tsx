@@ -1,4 +1,4 @@
-import { Container } from 'app/layout'
+import { Container } from 'shared/ui/layout'
 import styles from './index.module.scss'
 import logo from './logo.png'
 

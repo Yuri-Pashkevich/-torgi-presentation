@@ -4,6 +4,7 @@ import styles from "./index.module.scss"
 export const NewsSidebar = () => {
   return (
     <aside class={styles.sidebar}>
+        <div class={styles.overflow_mask}/>
         <div class={styles.sidebar_title}>
             Лента новостей
         </div>
@@ -12,7 +13,6 @@ export const NewsSidebar = () => {
         <SidebarItem/>
         <SidebarItem/>
         <SidebarItem/>
-        <div class={styles.overflow_mask}/>
     </aside>
   )
 }

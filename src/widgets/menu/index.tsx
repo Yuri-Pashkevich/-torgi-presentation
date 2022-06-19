@@ -1,12 +1,12 @@
-import { Container } from 'app/layout'
+import { Container } from 'shared/ui/layout'
 import { For } from "solid-js"
 import styles from './index.module.scss'
 
 const menuItems = ['Все категории', 'Недвижимость', 'Транспорт и запчасти', 'Оборудование', 'Мебель, интерьер', 'Электроника', 'Строительство', 'Нематериальное']
+let menuList: HTMLUListElement | undefined
 
 export const Menu = () => {
 
-    let menuList: HTMLUListElement | undefined
 
     const handleMenuClick = (e: any) => {
         menuList?.childNodes.forEach((menuItem: any) => {
