@@ -1,13 +1,20 @@
 import { createStore } from 'solid-js/store'
 
-type ObjectData = {
+export type ObjectData = {
     id: number
-    name: string
-    requestStart: string
-    requestEnd: string
-    auctionStart: string
-    auctionEnd: string
+    category: string
+    lot_number: number
+    initial_price: number
+    deposit: number
     address: string
+    name: string
+    image: string
+    description: string
+    price: number
+    request_start: string
+    request_end: string
+    auction_start: string
+    auction_end: string
 }
 
 type NewsData = {
@@ -20,7 +27,7 @@ type NewsData = {
 
 export interface InitStore {
     all: ObjectData[] | [] 
-    property: ObjectData[] | []
+    estate: ObjectData[] | []
     transport: ObjectData[] | []
     equipment: ObjectData[] | []
     furniture: ObjectData[] | []
@@ -28,16 +35,21 @@ export interface InitStore {
     building: ObjectData[] | []
     intangible: ObjectData[] | []
     news: NewsData[] | []
+    auction: ObjectData[] | []
 }
 
 export const [state, setState] = createStore<InitStore>({
     all: [],
-    property: [],
+    estate: [],
     transport: [],
     equipment: [],
     furniture: [],
     electronics: [],
     building: [],
     intangible: [],
-    news: []
+    news: [],
+    auction: []
 })
+
+
+

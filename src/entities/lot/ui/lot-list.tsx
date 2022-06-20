@@ -4,7 +4,7 @@ import { InitStore } from 'shared/model'
 
 interface LotListProps {
     data: InitStore
-    listType: 'all' | 'property' | 'transport' | 'equipment' | 'furniture' | 'electronics' | 'building' | 'intangible'
+    listType: 'all' | 'estate' | 'transport' | 'equipment' | 'furniture' | 'electronics' | 'building' | 'intangible'
     count?: number
 }
 

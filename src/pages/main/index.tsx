@@ -21,7 +21,7 @@ export const Main: Component = () => {
                 <div style={`overflow: hidden`}>
                     <Carousel />
                     <Layout.Page columns={2}>
-                        <LotList data={state} listType="all" count={8}/>
+                        <LotList data={state} listType="all" count={4}/>
                     </Layout.Page>
                 </div>
             </Layout.Content>

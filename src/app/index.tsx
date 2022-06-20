@@ -6,15 +6,12 @@ import { Header } from 'widgets/header'
 import { Footer } from 'widgets/footer'
 import { Menu } from 'widgets/menu'
 import { SubMenu } from 'widgets/submenu'
-import { Property } from 'pages/property'
+import { Estate } from 'pages/estate'
 import { Main } from 'pages/main'
+import { Auction } from 'pages/auction'
 
-import { Link, useLocation } from 'solid-app-router'
 
 export const App: Component = () => {
-
-  const location = useLocation();
-console.log(location.pathname)
 
   return (
     <div class={style.app}>
@@ -25,7 +22,8 @@ console.log(location.pathname)
         <Layout.Container>
           <Routes>
             <Route path="/" element={<Main/>} />
-            <Route path="/property" element={<Property/>} />
+            <Route path="/estate" element={<Estate/>} />
+            <Route path="/:section/:id" element={<Auction/>} />
           </Routes>
 
         </Layout.Container>

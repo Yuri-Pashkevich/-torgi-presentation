@@ -11,7 +11,9 @@ export const dateConverter = (date: string) => {
         .toLocaleString('ru', options)
         .split(' ')
         .join(' ')
-        return formattedDate
+        const hours = (new Date(date).getHours() < 10 ? '0' : '') + new Date(date).getHours()
+        const minutes =  (new Date(date).getMinutes() < 10 ? '0' : '') + new Date(date).getMinutes()
+        return formattedDate + ` в ${hours}:${minutes}`
     }
     return null
 }

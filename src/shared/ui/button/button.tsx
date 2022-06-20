@@ -2,7 +2,7 @@ import styles from './index.module.scss'
 
 interface Button {
     type: 'submit' | 'button'
-    value: string
+    value?: string
 }
 
 export const Button = ({ type, value }: Button) => {
@@ -11,9 +11,7 @@ export const Button = ({ type, value }: Button) => {
             class={styles.button}
             type={type}
             value={value}
-        >
-            {value}
-        </button>
+        >{value}</button>
     )
 }
 

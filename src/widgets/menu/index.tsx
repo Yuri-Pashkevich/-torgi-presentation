@@ -4,8 +4,8 @@ import styles from './index.module.scss'
 import { Link } from "solid-app-router"
 
 const menuItems = [
-    { category: 'Все категории', href: '/' },
-    { category: 'Недвижимость', href: '/property' },
+    { category: 'Главная', href: '/' },
+    { category: 'Недвижимость', href: '/estate' },
     { category: 'Транспорт и запчасти', href: '/transport' },
     { category: 'Оборудование', href: '/equipment' },
     { category: 'Мебель, интерьер', href: '/furniture' },

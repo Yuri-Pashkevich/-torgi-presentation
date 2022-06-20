@@ -5,12 +5,14 @@
     padding: 0.2rem;
     outline: none;
     width: 100%;
+    display: flex;
+    align-items: center;
     border: 1px solid var(--grey-200);
     font-family: "Segoe UI", sans-serif;
     font-size: 1rem;
     &::placeholder {
         color: var(--grey-500);
-        padding: 0.2rem;
+        padding-left: 0.4rem;
         font-family: "Segoe UI", sans-serif;
         
     }
