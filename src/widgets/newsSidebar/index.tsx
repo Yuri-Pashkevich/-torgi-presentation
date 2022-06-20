@@ -1,43 +1,53 @@
 import { dateConverter } from "shared/helpers/dateConverter"
 import styles from "./index.module.scss"
+import { For, onMount } from "solid-js"
+import { state } from 'shared/model'
+import { getNews } from 'widgets/newsSidebar/api'
 
 export const NewsSidebar = () => {
-  return (
-    <aside class={styles.sidebar}>
-        <div class={styles.overflow_mask}/>
-        <div class={styles.sidebar_title}>
-            Лента новостей
-        </div>
-        <SidebarItem/>
-        <SidebarItem/>
-        <SidebarItem/>
-        <SidebarItem/>
-        <SidebarItem/>
-        <SidebarItem/>
 
-    </aside>
-  )
+    onMount(() => {
+        getNews()
+    })
+
+    return (
+        <aside class={styles.sidebar}>
+            <div class={styles.overflow_mask} />
+            <div class={styles.sidebar_title}>
+                Лента новостей
+            </div>
+            <For each={state.news} fallback={<p>Loading...</p>}>{({date, name}) =>
+                <SidebarItem date={date} name={name} />
+            }
+            </For>
+        </aside>
+    )
 }
 
-const SidebarItem = () => {
+const SidebarItem = ({ date, name }: SideBarNewsItem & SideBarDate) => {
     return (
         <>
-            <SidebarDate/>
-            <SidebarNews/>
+            <SidebarDate date={date}/>
+            <SidebarNews name={name} />
         </>
     )
 }
 
-const SidebarNews = () => {
+interface SideBarNewsItem {
+    name: string
+}
+
+const SidebarNews = ({ name }: SideBarNewsItem) => {
     return <div class={styles.sidebar_news}>
-        МИПК и ПК БНТУ объявляет набор слушателей в группу по подготовке временных (антикризисных) управляющих с 22.08.2022
+        {name}
     </div>
 }
 
-const SidebarDate = () => {
+interface SideBarDate {
+    date: string
+}
 
-    const date = '2022-06-17T12:50:01.135Z'
-
+const SidebarDate = ({ date }: SideBarDate) => {
     return <div class={styles.sidebar_date}>{dateConverter(date)}</div>
 }
 

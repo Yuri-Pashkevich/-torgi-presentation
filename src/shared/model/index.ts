@@ -10,7 +10,16 @@ type ObjectData = {
     address: string
 }
 
+type NewsData = {
+    id: number
+    category: string
+    date: string
+    name: string
+    description: string
+}
+
 export interface InitStore {
+    all: ObjectData[] | [] 
     property: ObjectData[] | []
     transport: ObjectData[] | []
     equipment: ObjectData[] | []
@@ -18,14 +27,17 @@ export interface InitStore {
     electronics: ObjectData[] | []
     building: ObjectData[] | []
     intangible: ObjectData[] | []
+    news: NewsData[] | []
 }
 
 export const [state, setState] = createStore<InitStore>({
+    all: [],
     property: [],
     transport: [],
     equipment: [],
     furniture: [],
     electronics: [],
     building: [],
-    intangible: []
+    intangible: [],
+    news: []
 })

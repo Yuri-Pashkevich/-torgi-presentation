@@ -1,0 +1,19 @@
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    .icon_wrap {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 .7rem;
+        background-color: var(--grey-200);
+        position: absolute;
+        right: 0;
+        svg {
+            font-size: 1.5rem;
+            fill: var(--grey-900);
+        }
+    }
+}

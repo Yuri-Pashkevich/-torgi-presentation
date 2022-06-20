@@ -4,13 +4,32 @@
     align-items: center;
 }
 
+.header_content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
 .header_left {
     display: flex;
     align-items: center;
     padding: 0.6rem 0;
     gap: 0.5rem;
+    & > div {
+        width: 370px;
+    }
     img {
         height: 4rem;
+    }
+}
+
+.header_right {
+    width: 100%;
+    gap: 1.25rem;
+    display: flex;
+    align-items: center;
+    button {
+        width: 6rem;
     }
 }
 
@@ -19,9 +38,9 @@
     font-weight: 900;
     font-size: 2.2rem;
     color: #ffca18;
-    span:first-child {
+    span:first-child,
+    span:nth-child(3) {
       color: var(--grey-500);
-  
     }
     span {
       color: #585858;
@@ -30,6 +49,7 @@
 
 .logo_subtitle {
     font-weight: 400;
-    margin-top: -0.4rem;
+    margin-top: -0.3rem;
+    font-size: 0.82rem;
     color: var(--grey-600);
 }

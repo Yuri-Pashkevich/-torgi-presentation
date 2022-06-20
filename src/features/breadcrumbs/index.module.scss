@@ -1,0 +1,9 @@
+.bread_crumbs {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-end;
+    svg {
+        font-size: 1.2rem;
+        fill: var(--yellow-700);
+    }
+}

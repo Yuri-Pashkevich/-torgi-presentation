@@ -1,0 +1,9 @@
+.sign_in {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    svg {
+        font-size: 1.2rem;
+        fill: var(--grey-900)
+    }
+}

@@ -1,11 +1,34 @@
 .menu {
     background-color: var(--grey-800);
-    color: var(--white);
 }
 
 .menu_list {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding-left: 0;
+    .menu_item {
+        padding: .7rem 0;
+        transition: padding 0.1s ease-in-out;
+        &.active {
+            padding: .7rem .7rem;
+        }
+        &:first-child {
+            padding-left: 0;
+            &.active {
+                padding-left: .7rem;
+
+            }
+        }
+        &:last-child {
+            padding-right: 0;
+            &.active {
+                padding-right: .7rem;
+
+            }
+        }
+
+    }
 }
 
 .menu_item {
@@ -13,7 +36,7 @@
     font-size: 0.85rem;
     cursor: pointer;
     font-weight: 600;
-    padding: .7rem .7rem;
+    color: var(--white);
     &.active {
         background-color: var(--yellow);
         color: var(--grey-800);

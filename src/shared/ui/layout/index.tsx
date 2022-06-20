@@ -31,25 +31,21 @@ export const Content = ({ children, columns }: ContentProps) => {
     position: relative;
     margin-top: 1.25rem;
     gap: 1.25rem;
-    grid-template-columns: 320px 1fr
+    grid-template-columns: 340px 1fr
   `
 
   if (columns) {
     return (
-      <Container>
         <div style={columnsStyles}>
           {children}
         </div>
-      </Container>
     )
   }
 
   return (
-    <Container>
       <div style={defaultStyles}>
         {children}
       </div>
-    </Container>
   )
 }
 

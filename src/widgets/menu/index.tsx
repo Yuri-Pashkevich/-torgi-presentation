@@ -1,8 +1,18 @@
 import { Container } from 'shared/ui/layout'
 import { For } from "solid-js"
 import styles from './index.module.scss'
+import { Link } from "solid-app-router"
 
-const menuItems = ['Все категории', 'Недвижимость', 'Транспорт и запчасти', 'Оборудование', 'Мебель, интерьер', 'Электроника', 'Строительство', 'Нематериальное']
+const menuItems = [
+    { category: 'Все категории', href: '/' },
+    { category: 'Недвижимость', href: '/property' },
+    { category: 'Транспорт и запчасти', href: '/transport' },
+    { category: 'Оборудование', href: '/equipment' },
+    { category: 'Мебель, интерьер', href: '/furniture' },
+    { category: 'Электроника', href: '/electronics' },
+    { category: 'Строительство', href: '/building' },
+    { category: 'Нематериальное', href: '/intangible' }
+]
 let menuList: HTMLUListElement | undefined
 
 export const Menu = () => {
@@ -19,10 +29,10 @@ export const Menu = () => {
         <nav class={styles.menu}>
             <Container>
                 <ul class={styles.menu_list} ref={menuList} >
-                    <For each={menuItems}>{(item, index) =>
-                        <a onClick={handleMenuClick} class={`${styles.menu_item} ${index() === 0 ? styles.active : ''}`}>
-                            {item}
-                        </a>
+                    <For each={menuItems}>{({category, href}, index) =>
+                        <Link href={href} onClick={handleMenuClick} class={`${styles.menu_item} ${index() === 0 ? styles.active : ''}`}>
+                            {category}
+                        </Link>
                     }
                     </For>
                 </ul>

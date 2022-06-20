@@ -1,0 +1,17 @@
+.input {
+    height: 2.4rem;
+    color: var(--grey-900);
+    border-radius: 0.2rem;
+    padding: 0.2rem;
+    outline: none;
+    width: 100%;
+    border: 1px solid var(--grey-200);
+    font-family: "Segoe UI", sans-serif;
+    font-size: 1rem;
+    &::placeholder {
+        color: var(--grey-500);
+        padding: 0.2rem;
+        font-family: "Segoe UI", sans-serif;
+        
+    }
+}
