@@ -10,7 +10,7 @@ export const Header = () => {
       <Container>
         <div class={styles.header_content}>
           <div class={styles.header_left}>
-            <img src={logo} alt="logo" />
+            <img src="https://raw.githubusercontent.com/Yuri-Pashkevich/-torgi-presentation/gh-pages/assets/logo.9c899518.png" alt="logo" />
             <div>
               <div class={styles.logo_title}>Likvidator<span>.</span><span>gov</span><span>.</span><span>by</span></div>
               <div class={styles.logo_subtitle}>продажа имущества ликвидируемых предприятий</div>
