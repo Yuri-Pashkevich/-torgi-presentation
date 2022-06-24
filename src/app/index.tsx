@@ -1,7 +1,7 @@
 import { Routes, Route } from "solid-app-router"
 import { Component } from 'solid-js'
 import { Layout } from 'shared/ui/layout'
-import style from './index.module.scss'
+import styles from './index.module.scss'
 import { Header } from 'widgets/header'
 import { Footer } from 'widgets/footer'
 import { Menu } from 'widgets/menu'
@@ -14,7 +14,7 @@ import { Auction } from 'pages/auction'
 export const App: Component = () => {
 
   return (
-    <div class={style.app}>
+    <div class={styles.app}>
       <Layout>
         <Header />
         <Menu />
@@ -25,7 +25,6 @@ export const App: Component = () => {
             <Route path="/estate" element={<Estate/>} />
             <Route path="/:section/:id" element={<Auction/>} />
           </Routes>
-
         </Layout.Container>
         <Footer />
       </Layout>

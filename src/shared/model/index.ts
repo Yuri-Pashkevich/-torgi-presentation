@@ -35,7 +35,8 @@ export interface InitStore {
     building: ObjectData[] | []
     intangible: ObjectData[] | []
     news: NewsData[] | []
-    auction: ObjectData[] | []
+    auction: ObjectData | null
+    isAuctionLoaded: boolean
 }
 
 export const [state, setState] = createStore<InitStore>({
@@ -48,7 +49,8 @@ export const [state, setState] = createStore<InitStore>({
     building: [],
     intangible: [],
     news: [],
-    auction: []
+    auction: null,
+    isAuctionLoaded: false
 })
 
 

@@ -1,4 +1,4 @@
-import { dateConverter } from "shared/helpers/dateConverter"
+import { convertDate } from "shared/helpers/convertDate"
 import styles from "./index.module.scss"
 import { For, onMount } from "solid-js"
 import { state } from 'shared/model'
@@ -48,6 +48,5 @@ interface SideBarDate {
 }
 
 const SidebarDate = ({ date }: SideBarDate) => {
-    return <div class={styles.sidebar_date}>{dateConverter(date)}</div>
+    return <div class={styles.sidebar_date}>{convertDate(date)}</div>
 }
-

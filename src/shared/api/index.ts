@@ -16,7 +16,7 @@ createServer({
         this.get("/estate", () => estate),
         this.get("/estate/:id", (schema, request) => {
             let reqId = request.params.id
-            return estate.filter(({id}) => +reqId === id)
+            return {...estate.find(({id}) => id === +reqId)}
         })
         this.get("/transport", () => transport),
         this.get("/equipment", () => equipment),
@@ -35,7 +35,6 @@ const equipment = [
     { id: 2, name: "Пневмоинструмент" },
     { id: 3, name: "Пилы дисковые" },
 ]
-
 const estate = [
     {   
         id: 336, category: 'estate', lot_number: 25084, initial_price: 937040.00, address: 'Лидский район, Дубровенский с/с, д. Огородники, ул. Новая, 1В', name: 'Здание гостиницы, д. Огородники', image: 'https://v-grand.ru/wp-content/uploads/2018/12/proektirovanie-gostinic.jpg',

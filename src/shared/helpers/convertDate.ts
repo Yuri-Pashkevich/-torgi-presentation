@@ -1,4 +1,4 @@
-export const dateConverter = (date: string) => {
+export const convertDate = (date: string) => {
 
     const options: any = {
         year: 'numeric',

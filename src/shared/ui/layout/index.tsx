@@ -16,12 +16,13 @@ export const Layout = ({ children }: LayoutProps) => {
 interface ContainerProps extends LayoutProps { }
 interface ContentProps extends LayoutProps {
   columns?: number
+  columnWidth?: string
 }
 interface PageProps extends ContentProps { }
 
 export const Container = ({ children }: ContainerProps) => <div class={style.container}>{children}</div>
 
-export const Content = ({ children, columns }: ContentProps) => {
+export const Content = ({ children, columns, columnWidth = 'auto' }: ContentProps) => {
 
   const defaultStyles = `
     margin-top: 1.25rem;
@@ -29,9 +30,9 @@ export const Content = ({ children, columns }: ContentProps) => {
   const columnsStyles = `
     display: grid;
     position: relative;
-    margin-top: 1.25rem;
+    margin: 1.25rem 0;
     gap: 1.25rem;
-    grid-template-columns: 340px 1fr
+    grid-template-columns: repeat(${columns}, ${columnWidth})
   `
 
   if (columns) {

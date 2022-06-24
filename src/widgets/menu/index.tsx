@@ -1,7 +1,8 @@
 import { Container } from 'shared/ui/layout'
-import { For } from "solid-js"
-import styles from './index.module.scss'
-import { Link } from "solid-app-router"
+import { For, createSignal, createEffect } from "solid-js"
+import styles from 'shared/helpers/index.module.scss'
+import { Link, useLocation } from "solid-app-router"
+import { handleMenuSelect, path, setPath } from 'shared/helpers/handleMenuSelect'
 
 const menuItems = [
     { category: 'Главная', href: '/' },
@@ -13,24 +14,21 @@ const menuItems = [
     { category: 'Строительство', href: '/building' },
     { category: 'Нематериальное', href: '/intangible' }
 ]
-let menuList: HTMLUListElement | undefined
 
 export const Menu = () => {
 
-
-    const handleMenuClick = (e: any) => {
-        menuList?.childNodes.forEach((menuItem: any) => {
-            menuItem.classList.remove(styles.active)
-        })
-        e.target.classList.add(styles.active)
-    }
-
+    let menuList: HTMLUListElement | undefined
+  
     return (
         <nav class={styles.menu}>
             <Container>
-                <ul class={styles.menu_list} ref={menuList} >
-                    <For each={menuItems}>{({category, href}, index) =>
-                        <Link href={href} onClick={handleMenuClick} class={`${styles.menu_item} ${index() === 0 ? styles.active : ''}`}>
+                <ul class={styles.menu_list} ref={menuList}>
+                    <For each={menuItems}>{({ category, href }) =>
+                        <Link
+                            href={href}
+                            onClick={(e) => {handleMenuSelect(e, menuList); setPath(href)} }
+                            class={styles.menu_item}
+                            classList={{ [styles.active]: href === path() }}>
                             {category}
                         </Link>
                     }

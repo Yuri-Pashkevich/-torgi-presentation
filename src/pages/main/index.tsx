@@ -5,7 +5,7 @@ import { Layout } from "shared/ui/layout"
 import { LotList } from "entities/lot/ui/lot-list"
 import { state } from 'shared/model'
 import { getAll } from 'pages/main/api'
-
+import styles from './index.module.scss'
 
 
 export const Main: Component = () => {
@@ -18,7 +18,7 @@ export const Main: Component = () => {
         <Layout.Page>
             <Layout.Content columns={2}>
                 <NewsSidebar />
-                <div style={`overflow: hidden`}>
+                <div class={styles.content_right}>
                     <Carousel />
                     <Layout.Page columns={2}>
                         <LotList data={state} listType="all" count={4}/>
