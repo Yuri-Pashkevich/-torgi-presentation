@@ -1,6 +1,6 @@
 import { For } from 'solid-js'
 import { Lot } from 'entities/lot/ui/lot'
-import { InitStore } from 'shared/model'
+import { InitStore, state } from 'shared/model'
 
 interface LotListProps {
     data: InitStore

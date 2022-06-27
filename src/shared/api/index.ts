@@ -58,8 +58,6 @@ const estate = [
     },
 ]
 
-	
-
 const all = [...estate, ...transport, ...equipment, ]
 
 const news = [

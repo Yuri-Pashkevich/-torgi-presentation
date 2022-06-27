@@ -7,6 +7,7 @@ export const convertCategory = (category: string) => {
         case 'electronics': return 'Электроника'; break;
         case 'building': return 'Строительство'; break;
         case 'intangible': return 'Нематериальное'; break;
+        case 'news': return 'Новости'; break;
 
         default: return null
     }

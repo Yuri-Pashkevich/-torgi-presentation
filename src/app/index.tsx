@@ -9,6 +9,8 @@ import { SubMenu } from 'widgets/submenu'
 import { Estate } from 'pages/estate'
 import { Main } from 'pages/main'
 import { Auction } from 'pages/auction'
+import { NewsItem } from "pages/news-item"
+import { News } from "pages/news"
 
 
 export const App: Component = () => {
@@ -24,6 +26,8 @@ export const App: Component = () => {
             <Route path="/" element={<Main/>} />
             <Route path="/estate" element={<Estate/>} />
             <Route path="/:section/:id" element={<Auction/>} />
+            <Route path="/news" element={<News/>}/>
+            <Route path="/news/:id" element={<NewsItem/>}/>
           </Routes>
         </Layout.Container>
         <Footer />
