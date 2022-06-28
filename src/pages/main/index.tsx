@@ -7,7 +7,6 @@ import { state } from 'shared/model'
 import { getAll } from 'pages/main/api'
 import styles from './index.module.scss'
 
-
 export const Main: Component = () => {
 
     onMount(() => {
@@ -20,9 +19,9 @@ export const Main: Component = () => {
                 <NewsSidebar />
                 <div class={styles.content_right}>
                     <Carousel />
-                    <Layout.Page columns={2}>
+                    <div class={styles.content_lots}>
                         <LotList data={state} listType="all" count={4}/>
-                    </Layout.Page>
+                    </div>
                 </div>
             </Layout.Content>
         </Layout.Page>

@@ -18,6 +18,8 @@
     "vite-plugin-solid": "^2.2.6"
   },
   "dependencies": {
+    "effector": "^22.3.0",
+    "effector-solid": "^0.22.0",
     "gh-pages": "^4.0.0",
     "miragejs": "^0.1.45",
     "sass": "^1.52.3",

@@ -20,7 +20,11 @@ createServer({
         })
         this.get("/transport", () => transport),
         this.get("/equipment", () => equipment),
-        this.get("/news", () => news)
+        this.get("/news", () => news),
+        this.get("/news/:id", (schema, request) =>  {
+            let reqId = request.params.id
+            return {...news.find(({id}) => id === +reqId)}
+        })
     },
 })
 

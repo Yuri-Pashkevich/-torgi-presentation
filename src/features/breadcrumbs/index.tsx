@@ -3,6 +3,7 @@ import { Link, useParams, useLocation } from 'solid-app-router'
 import { AiFillHome } from 'solid-icons/ai'
 import styles from './index.module.scss'
 import { state } from 'shared/model'
+import { news } from 'pages/news-item/model'
 import { setPath } from 'shared/helpers/handleMenuSelect';
 import { convertCategory } from 'shared/helpers/convertCategory';
 
@@ -24,7 +25,7 @@ export const BreadCrumbs = () => {
                 / <Link href={`/${path}`} onClick={() => setPath(`/${path}`)}>{convertCategory(path)}</Link>
             </Show>
             <Show when={id}>
-               / <div class={styles.lot}> {state.auction?.name}</div>
+               / <div class={styles.lot}> {path === 'news' ? news()?.name : state.auction?.name}</div>
             </Show>
         </div>
     )

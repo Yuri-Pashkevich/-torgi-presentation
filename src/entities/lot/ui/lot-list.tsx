@@ -1,13 +1,12 @@
 import { For } from 'solid-js'
 import { Lot } from 'entities/lot/ui/lot'
-import { InitStore, state } from 'shared/model'
+import { InitStore } from 'shared/model'
 
 interface LotListProps {
     data: InitStore
     listType: 'all' | 'estate' | 'transport' | 'equipment' | 'furniture' | 'electronics' | 'building' | 'intangible'
     count?: number
 }
-
 
 export const LotList = ({ data, listType, count }: LotListProps ) => {
 
@@ -31,4 +30,3 @@ export const LotList = ({ data, listType, count }: LotListProps ) => {
         </For>
     )
 }
-
