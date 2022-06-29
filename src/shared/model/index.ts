@@ -1,4 +1,5 @@
 import { createStore } from 'solid-js/store'
+import { createSignal } from 'solid-js'
 
 export type ObjectData = {
     id: number
@@ -53,5 +54,4 @@ export const [state, setState] = createStore<InitStore>({
     isAuctionLoaded: false
 })
 
-
-
+export const [isLoaded, setIsLoaded] = createSignal(false)

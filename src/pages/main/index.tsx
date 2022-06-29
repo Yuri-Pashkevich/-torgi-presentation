@@ -15,15 +15,25 @@ export const Main: Component = () => {
 
     return (
         <Layout.Page>
-            <Layout.Content columns={2}>
-                <NewsSidebar />
-                <div class={styles.content_right}>
-                    <Carousel />
-                    <div class={styles.content_lots}>
-                        <LotList data={state} listType="all" count={4}/>
+            <Layout.Container>
+                <Layout.Content columns={2}>
+                    <NewsSidebar />
+                    <div class={styles.content_right}>
+                        <Carousel />
+                        <div class={styles.content_lots}>
+                            <LotList data={state} listType="all" count={2} />
+                        </div>
                     </div>
-                </div>
-            </Layout.Content>
+                </Layout.Content>
+            </Layout.Container>
+            <div class={styles.lastlots_bgc}>
+                <Layout.Container>
+                    <h2 class={styles.lastlots_title}>Недавно добавленные лоты</h2>
+                    <Layout.Content columns={3} columnWidth="1fr" margin='0'>
+                        <LotList data={state} listType="all" count={9} />
+                    </Layout.Content>
+                </Layout.Container>
+            </div>
         </Layout.Page>
     )
 }

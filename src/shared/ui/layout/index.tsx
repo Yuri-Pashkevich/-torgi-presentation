@@ -1,5 +1,5 @@
 import { JSXElement } from "solid-js"
-import style from './index.module.scss'
+import styles from './index.module.scss'
 
 interface LayoutProps {
   children: JSXElement
@@ -7,7 +7,7 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <main style={style.main}>
+    <main style={styles.main}>
       {children}
     </main>
   )
@@ -17,12 +17,13 @@ interface ContainerProps extends LayoutProps { }
 interface ContentProps extends LayoutProps {
   columns?: number
   columnWidth?: string
+  margin?: string
 }
 interface PageProps extends ContentProps { }
 
-export const Container = ({ children }: ContainerProps) => <div class={style.container}>{children}</div>
+export const Container = ({ children }: ContainerProps) => <div class={styles.container}>{children}</div>
 
-export const Content = ({ children, columns, columnWidth = 'auto' }: ContentProps) => {
+export const Content = ({ children, columns, columnWidth = 'auto', margin = '1.25rem 0' }: ContentProps) => {
 
   const defaultStyles = `
     margin-top: 1.25rem;
@@ -30,21 +31,21 @@ export const Content = ({ children, columns, columnWidth = 'auto' }: ContentProp
   const columnsStyles = `
     display: grid;
     position: relative;
-    margin: 1.25rem 0;
+    margin: ${margin};
     gap: 1.25rem;
     grid-template-columns: repeat(${columns}, ${columnWidth})
   `
 
   if (columns) {
     return (
-        <div style={columnsStyles}>
+        <div style={columnsStyles} class={styles.content}>
           {children}
         </div>
     )
   }
 
   return (
-      <div style={defaultStyles}>
+      <div style={defaultStyles} class={styles.content}>
         {children}
       </div>
   )

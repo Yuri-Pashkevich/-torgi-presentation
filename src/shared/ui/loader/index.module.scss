@@ -1,3 +1,12 @@
+.loader {
+    min-height: calc(100vh - 170px - 2.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    margin: 1.25rem 0;
+}
+
 @keyframes ldio-1 {
     0% {
         transform: rotate(0deg)
@@ -99,7 +108,7 @@
     height: 200px;
     display: inline-block;
     overflow: hidden;
-    background: #ffffff;
+    margin-bottom: 100px;
 }
 
 .ldio {

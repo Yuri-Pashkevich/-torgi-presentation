@@ -1,18 +1,17 @@
-import { For, onMount } from 'solid-js'
+import { For, onMount, Accessor } from 'solid-js'
 import styles from './index.module.scss'
 import { Link } from 'solid-app-router'
 import { convertDate } from 'shared/helpers/convertDate'
 import newsImg from './1.jpg'
-import { news } from 'entities/news/model'
-import { getNews } from 'entities/news/api'
 
+interface NewsListProps {
+    news: Accessor<NewsItemProps[] | undefined>
+}
 
-export const NewsList = () => {
-
-    onMount(() => getNews())
+export const NewsList = ({ news }: NewsListProps) => {
 
     return (
-        <For each={news()} fallback={<p>Loading...</p>}>{(newsItem) =>
+        <For each={news()}>{(newsItem) =>
             <NewsItem {...newsItem} />
         }
         </For>

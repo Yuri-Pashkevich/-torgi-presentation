@@ -21,15 +21,13 @@ export const App: Component = () => {
         <Header />
         <Menu />
         <SubMenu/>
-        <Layout.Container>
           <Routes>
-            <Route path="/" element={<Main/>} />
-            <Route path="/estate" element={<Estate/>} />
-            <Route path="/:section/:id" element={<Auction/>} />
-            <Route path="/news" element={<News/>}/>
-            <Route path="/news/:id" element={<NewsItem/>}/>
+              <Route path="/" element={<Main/>} />
+              <Route path="/estate" element={<Estate/>} />
+              <Route path="/:section/:id" element={<Auction/>} />
+              <Route path="/news" element={<News/>}/>
+              <Route path="/news/:id" element={<NewsItem/>}/>
           </Routes>
-        </Layout.Container>
         <Footer />
       </Layout>
     </div>
