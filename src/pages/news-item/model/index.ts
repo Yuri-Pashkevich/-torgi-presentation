@@ -24,7 +24,11 @@ const initStore = {
     description: '',
 }
 
-const newsItemRoute = createEvent()
+export const pageMounted = createEvent<string>()
 
 export const $news = createStore<News>(initStore).on(getNewsFx.doneData, (_, data) => data)
 
+sample({
+    clock: pageMounted,
+    target: getNewsFx,
+})

@@ -1,6 +1,6 @@
 export const convertDate = (date: string | undefined) => {
 
-    const options: any = {
+    const options: Intl.DateTimeFormatOptions = {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
