@@ -13,6 +13,10 @@ createServer({
             return all.filter((it, i) => i < count)
         }),
         this.get("/all", () => all),
+        this.post("/all", (schema, request) => {
+            let req = JSON.parse(request.requestBody)
+            return all.filter(({name}) => name.includes(req.name))
+        })
         this.get("/estate", () => estate),
         this.get("/estate/:id", (schema, request) => {
             let reqId = request.params.id

@@ -1,12 +1,7 @@
-import { setNews } from "pages/news/model"
-import { setIsLoaded } from "shared/model"
-
-export const getNews = async () => {
+export const fetchNews = async () => {
     try {
-        setIsLoaded(false)
         const res = await fetch('/news')
-        setNews(await res.json())
-        setIsLoaded(true)
+        return res.json()
     } 
     catch (e) {
         console.log(e)

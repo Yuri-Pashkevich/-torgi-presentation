@@ -1,6 +1,9 @@
-import { setState } from 'shared/model'
-
-export const getAll = async () => {
-    const res = await fetch('/all')
-    setState('all', await res.json())
+export const fetchAll = async () => {
+    try {
+        const res = await fetch('/all')
+        return res.json()
+    }
+    catch(e) {
+        console.log(e)
+    }
 }

@@ -4,7 +4,7 @@ import { fetchEquipment } from 'pages/equipment/api'
 
 export const pageMounted = createEvent()
 
-const getEquipmentFx = createEffect<void, ObjectData[]>()
+export const getEquipmentFx = createEffect<void, ObjectData[]>()
 getEquipmentFx.use(fetchEquipment)
 
 export const $equipment = createStore<ObjectData[]>([])

@@ -1,18 +1,17 @@
-import { For } from 'solid-js'
+import { Accessor, For } from 'solid-js'
 import { Lot } from 'entities/lot/ui/lot'
-import { InitStore } from 'shared/model'
+import { ObjectData } from 'shared/model'
 
 interface LotListProps {
-    data: InitStore
-    listType: 'all' | 'estate' | 'transport' | 'equipment' | 'furniture' | 'electronics' | 'building' | 'intangible'
+    data: Accessor<ObjectData[]> 
     count?: number
 }
 
-export const LotList = ({ data, listType, count }: LotListProps ) => {
+export const LotList = ({ data, count }: LotListProps ) => {
 
     if(count) {
         return (
-            <For each={data[listType].filter((it, i) => i < count)} fallback={<p>Loading...</p>}>{(lot) =>
+            <For each={data().filter((it, i) => i < count)} fallback={<p>Loading...</p>}>{(lot) =>
                 <Lot
                     {...lot}
                 />
@@ -22,7 +21,7 @@ export const LotList = ({ data, listType, count }: LotListProps ) => {
     }
 
     return (
-        <For each={data[listType]} fallback={<p>Loading...</p>}>{(lot) =>
+        <For each={data()} fallback={<p>Loading...</p>}>{(lot) =>
             <Lot
                 {...lot}
             />

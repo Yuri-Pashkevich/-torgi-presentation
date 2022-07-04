@@ -1,26 +1,27 @@
 import { Show, onMount } from 'solid-js'
 import { LotList } from "entities/lot/ui/lot-list"
-import { getEstate } from "pages/estate/api"
 import { Layout } from "shared/ui/layout"
-import { state } from 'shared/model'
 import { BreadCrumbs } from "features/breadcrumbs"
 import { Loader } from 'shared/ui/loader'
-import { isLoaded } from 'shared/model'
+import { getEstateFx, $estate, pageMounted } from './model'
+import { useUnit } from 'effector-solid'
 
 export const Estate = () => {
 
-    onMount(() => getEstate()) 
-    
+    const [equipment, mountEvent, loading] = useUnit([$estate, pageMounted, getEstateFx.pending])
+
+    onMount(() => mountEvent())
+
     return (
-        <Layout.Page>  
-            <Layout.Container>
-                <Show when={isLoaded()} fallback={<Loader/>}>
-                    <BreadCrumbs/>
+        <Layout.Page>
+            <Show when={!loading()} fallback={<Loader />}>
+                <Layout.Container>
+                    <BreadCrumbs />
                     <Layout.Content columns={3} columnWidth="1fr">
-                        <LotList data={state} listType="estate"/>
+                        <LotList data={equipment} />
                     </Layout.Content>
-                </Show>
-            </Layout.Container>
+                </Layout.Container>
+            </Show>
         </Layout.Page>
     )
 }

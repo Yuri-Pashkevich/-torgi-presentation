@@ -1,12 +1,7 @@
-import { setState } from 'shared/model'
-import { setIsLoaded } from 'shared/model'
-
-export const getEstate = async () => {
+export const fetchEstate = async () => {
     try {
-        setIsLoaded(false)
         const res = await fetch('/estate')
-        setState('estate', await res.json())
-        setIsLoaded(true)
+        return res.json()
     }
     catch (e) {
         console.log(e)
