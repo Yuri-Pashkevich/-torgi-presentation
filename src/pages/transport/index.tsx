@@ -1,14 +1,14 @@
-import { Layout } from "shared/ui/layout"
-import { LotList } from "entities/lot/ui/lot-list"
 import { Show, onMount } from 'solid-js'
+import { LotList } from "entities/lot/ui/lot-list"
+import { Layout } from "shared/ui/layout"
 import { BreadCrumbs } from "features/breadcrumbs"
 import { Loader } from 'shared/ui/loader'
-import { useUnit } from "effector-solid"
-import { $equipment, pageMounted, getEquipmentFx } from "./model"
+import { getTransportFx, $transport, pageMounted } from './model'
+import { useUnit } from 'effector-solid'
 
-export const Equipment = () => {
+export const Transport = () => {
 
-    const [equipment, mountEvent, loading] = useUnit([$equipment, pageMounted, getEquipmentFx.pending])
+    const [transport, mountEvent, loading] = useUnit([$transport, pageMounted, getTransportFx.pending])
 
     onMount(() => mountEvent())
 
@@ -18,7 +18,7 @@ export const Equipment = () => {
                 <Layout.Container>
                     <BreadCrumbs />
                     <Layout.Content columns={3} columnWidth="1fr">
-                        <LotList data={equipment} />
+                        <LotList data={transport} />
                     </Layout.Content>
                 </Layout.Container>
             </Show>

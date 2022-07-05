@@ -5,12 +5,8 @@ import { Header } from 'widgets/header'
 import { Footer } from 'widgets/footer'
 import { Menu } from 'widgets/menu'
 import { SubMenu } from 'widgets/submenu'
-import { Estate } from 'pages/estate'
-import { Main } from 'pages/main'
-import { Auction } from 'pages/auction'
-import { NewsItem } from "pages/news-item"
-import { News } from "pages/news"
-import { Equipment } from "pages/equipment"
+import { Main, Estate, Equipment, Auction, News, NewsItem, Transport } from 'pages'
+
 import styles from './index.module.scss'
 
 
@@ -29,6 +25,7 @@ export const App: Component = () => {
           <Route path="/:section/:id" element={<Auction />} />
           <Route path="/news" element={<News />} />
           <Route path="/news/:id" element={<NewsItem />} />
+          <Route path="/transport" element={<Transport />} />
         </Routes>
         <Footer />
       </Layout>

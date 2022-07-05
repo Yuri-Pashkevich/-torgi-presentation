@@ -1,13 +1,18 @@
 import { convertDate } from "shared/helpers/convertDate"
 import styles from "./index.module.scss"
-import { For } from "solid-js"
-import { state } from 'shared/model'
-import { getNews } from 'widgets/newsSidebar/api'
+import { For, onMount } from "solid-js"
 import { Link } from 'solid-app-router'
+import { getNewsFx, $news, pageMounted } from "./model"
+import { useUnit } from "effector-solid"
+import { Loader } from "shared/ui/loader"
 
 export const NewsSidebar = () => {
 
-    getNews()
+    const [news, mountEvent, loading] = useUnit([$news, pageMounted, getNewsFx.pending])
+
+    onMount(() => { mountEvent()
+        console.log('mount')
+    }) 
 
     return (
         <aside class={styles.sidebar}>
@@ -15,7 +20,7 @@ export const NewsSidebar = () => {
             <div class={styles.sidebar_title}>
                 Лента новостей
             </div>
-            <For each={state.news} fallback={<p>Loading...</p>}>{({date, name, id}) =>
+            <For each={news()} fallback={<Loader/>}>{({date, name, id}) =>
                 <SidebarItem date={date} name={name} id={id}/>
             }
             </For>

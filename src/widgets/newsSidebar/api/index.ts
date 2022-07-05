@@ -1,6 +1,4 @@
-import { setState } from 'shared/model'
-
-export const getNews = async () => {
+export const fetchNews = async () => {
     const res = await fetch('/news')
-    setState('news', await res.json())
+    return res.json()
 }

@@ -21,5 +21,3 @@ export const Lot = ({ id, category, lot_number, initial_price, deposit, address,
         </Link>
     )
 }
-
-

@@ -1,8 +1,9 @@
-import { setState } from 'shared/model'
-
-export const getAuction = async (url : string) => {
-    setState('isAuctionLoaded', false)
-    const res = await fetch(url)
-    setState('auction', await res.json())
-    setState('isAuctionLoaded', true)
+export const fetchAuction = async (url: string) => {
+    try {
+        const res = await fetch(url)
+        return res.json()
+    }
+    catch(e) {
+        console.log(e)
+    }
 }

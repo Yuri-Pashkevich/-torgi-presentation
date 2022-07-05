@@ -8,17 +8,18 @@ import { useUnit } from 'effector-solid'
 
 export const Estate = () => {
 
-    const [equipment, mountEvent, loading] = useUnit([$estate, pageMounted, getEstateFx.pending])
+    const [estate, mountEvent, loading] = useUnit([$estate, pageMounted, getEstateFx.pending])
+    const doneData = !loading()
 
     onMount(() => mountEvent())
 
     return (
         <Layout.Page>
-            <Show when={!loading()} fallback={<Loader />}>
+            <Show when={doneData} fallback={<Loader />}>
                 <Layout.Container>
                     <BreadCrumbs />
                     <Layout.Content columns={3} columnWidth="1fr">
-                        <LotList data={equipment} />
+                        <LotList data={estate} />
                     </Layout.Content>
                 </Layout.Container>
             </Show>

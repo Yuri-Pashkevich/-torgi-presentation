@@ -1,4 +1,4 @@
-import { Component, onMount, Show } from 'solid-js'
+import { Component, onMount, Show, createMemo } from 'solid-js'
 import { NewsSidebar } from "widgets/newsSidebar"
 import { Carousel } from 'widgets/carousel'
 import { Layout } from "shared/ui/layout"
@@ -14,16 +14,20 @@ export const Main: Component = () => {
 
     onMount(() => mountEvent())
 
+    const SideBar = createMemo(NewsSidebar)
+    const MainLotsList = createMemo(() => <LotList data={allLots} count={2}/>)
+    const LastLotsList = createMemo(() => <LotList data={allLots} count={9}/>)
+
     return (
         <Layout.Page>
             <Show when={!loading()} fallback={<Loader/>}>
                 <Layout.Container>
                     <Layout.Content columns={2}>
-                        <NewsSidebar />
+                        <SideBar />
                         <div class={styles.content_right}>
                             <Carousel />
                             <div class={styles.content_lots}>
-                                <LotList data={allLots} count={2} />
+                                <MainLotsList />
                             </div>
                         </div>
                     </Layout.Content>
@@ -32,7 +36,7 @@ export const Main: Component = () => {
                     <Layout.Container>
                         <h2 class={styles.lastlots_title}>Недавно добавленные лоты</h2>
                         <Layout.Content columns={3} columnWidth="1fr" margin='0'>
-                            <LotList data={allLots} count={9} />
+                            <LastLotsList />
                         </Layout.Content>
                     </Layout.Container>
                 </div>

@@ -18,7 +18,7 @@ export type ObjectData = {
     auction_end: string
 }
 
-type NewsData = {
+export type NewsData = {
     id: number
     category: string
     date: string

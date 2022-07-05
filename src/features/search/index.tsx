@@ -13,7 +13,7 @@ export const Search = () => {
 
     return (
         <div class={styles.search}>
-            <Input onChange={(e: any) => value(e.target.value)}/>
+            <Input onChange={(e: any) => value((e.target.value).toLowerCase())}/>
             <div class={styles.icon_wrap}>
                 <AiOutlineSearch/>
             </div>
