@@ -9,13 +9,12 @@ import { useUnit } from 'effector-solid'
 export const Estate = () => {
 
     const [estate, mountEvent, loading] = useUnit([$estate, pageMounted, getEstateFx.pending])
-    const doneData = !loading()
 
     onMount(() => mountEvent())
 
     return (
         <Layout.Page>
-            <Show when={doneData} fallback={<Loader />}>
+            <Show when={!loading()} fallback={<Loader />}>
                 <Layout.Container>
                     <BreadCrumbs />
                     <Layout.Content columns={3} columnWidth="1fr">

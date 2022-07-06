@@ -1,6 +1,5 @@
 import { Show, onMount } from 'solid-js'
 import { useLocation } from 'solid-app-router'
-import { state } from 'shared/model'
 import { convertDate } from 'shared/helpers/convertDate'
 import { Layout } from 'shared/ui/layout'
 import styles from './index.module.scss'
@@ -16,11 +15,12 @@ export const Auction = () => {
     const [auction, mountEvent, loading] = useUnit([$auction, pageMounted, getAuctionFx.pending])
 
     const { pathname } = useLocation()
+    const path = pathname.split('/')[1]
+
+    setPath(`/${path}`)
+    
     onMount(() => mountEvent(pathname))
     
-    const path = pathname.split('/')[1]
-    setPath(`/${path}`)
-
     return (
         <Layout.Page>
             <Show when={!loading()} fallback={<Loader />}>

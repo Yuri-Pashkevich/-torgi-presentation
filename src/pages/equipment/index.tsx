@@ -10,7 +10,9 @@ export const Equipment = () => {
 
     const [equipment, mountEvent, loading] = useUnit([$equipment, pageMounted, getEquipmentFx.pending])
 
-    onMount(() => mountEvent())
+    onMount(() => {
+        mountEvent()
+    })
 
     return (
         <Layout.Page>

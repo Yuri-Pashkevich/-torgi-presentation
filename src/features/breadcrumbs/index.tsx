@@ -3,12 +3,15 @@ import { Link, useParams, useLocation } from 'solid-app-router'
 import { AiFillHome } from 'solid-icons/ai'
 import styles from './index.module.scss'
 import { state } from 'shared/model'
-import { news } from 'pages/news-item/model'
+import { $news } from 'pages/news-item/model'
 import { setPath } from 'shared/helpers/handleMenuSelect';
 import { convertCategory } from 'shared/helpers/convertCategory';
+import { useUnit } from 'effector-solid';
 
 
 export const BreadCrumbs = () => {
+
+    const [news] = useUnit([$news])
 
     const { pathname } = useLocation()
     const path = pathname.split('/')[1]

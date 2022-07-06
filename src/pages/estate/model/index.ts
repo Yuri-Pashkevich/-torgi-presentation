@@ -12,5 +12,7 @@ export const $estate = createStore<ObjectData[]>([])
 
 sample({
     clock: pageMounted,
+    source: $estate,
+    filter: (state) => state.length === 0,
     target: getEstateFx
 })

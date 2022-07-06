@@ -19,5 +19,7 @@ export const $news = createStore<News[]>([])
 
 sample({
     clock: pageMounted,
+    source: $news,
+    filter: (state) => state.length === 0,
     target: getNewstFx
 })

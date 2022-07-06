@@ -8,13 +8,13 @@ import { $news, pageMounted, getNewstFx } from './model'
 
 export const News = () => {
 
-    const [news, mountEvent, loading] = useUnit([$news, pageMounted, getNewstFx])
-
+    const [news, mountEvent, loading] = useUnit([$news, pageMounted, getNewstFx.pending])
+    const doneData = !loading()
     onMount(() => mountEvent())
 
     return (
         <Layout.Page>
-            <Show when={!loading()} fallback={<Loader />}>
+            <Show when={doneData} fallback={<Loader />}>
                 <Layout.Container>
                     <BreadCrumbs />
                     <Layout.Content columns={3} columnWidth="1fr">

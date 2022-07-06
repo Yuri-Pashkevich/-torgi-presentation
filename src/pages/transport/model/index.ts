@@ -12,5 +12,7 @@ export const $transport = createStore<ObjectData[]>([])
 
 sample({
     clock: pageMounted,
+    source: $transport,
+    filter: (state) => state.length === 0,
     target: getTransportFx
 })

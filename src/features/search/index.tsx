@@ -20,4 +20,3 @@ export const Search = () => {
         </div>
     )
 }
-

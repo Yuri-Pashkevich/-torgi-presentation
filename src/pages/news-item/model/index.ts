@@ -1,7 +1,5 @@
-import { createSignal } from "solid-js"
-import { createEvent, createStore, sample } from "effector"
-import { getNewsFx } from "../api"
-
+import { createEvent, createStore, sample, createEffect } from "effector"
+import { fetchNews } from "pages/news-item/api"
 
 export type News = {
     id: number,
@@ -10,8 +8,6 @@ export type News = {
     name: string,
     description: string,
 }
-
-export const [news, setNews] = createSignal<News>()
 
 
 // effector store realization
@@ -26,7 +22,11 @@ const initStore = {
 
 export const pageMounted = createEvent<string>()
 
-export const $news = createStore<News>(initStore).on(getNewsFx.doneData, (_, data) => data)
+export const getNewsFx = createEffect<string, News>()
+getNewsFx.use(fetchNews)
+
+export const $news = createStore<News>(initStore)
+.on(getNewsFx.doneData, (_, data) => data)
 
 sample({
     clock: pageMounted,

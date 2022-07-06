@@ -12,5 +12,7 @@ export const $all = createStore<ObjectData[]>([])
 
 sample({
     clock: pageMounted,
+    source: $all,
+    filter: (state) => state.length === 0,
     target: getAllFx
 })

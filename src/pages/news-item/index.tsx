@@ -7,28 +7,25 @@ import { setPath } from 'shared/helpers/handleMenuSelect'
 import { Loader } from 'shared/ui/loader'
 import { convertDate } from 'shared/helpers/convertDate'
 import { useUnit } from 'effector-solid/scope'
-import { getNewsFx } from './api'
-import { $news } from './model'
-import { pageMounted } from './model'
+import { $news, getNewsFx, pageMounted } from './model'
 
 
 export const NewsItem = () => {
 
-    const [news, loading, handlePageMounted] = useUnit([$news, getNewsFx.pending, pageMounted])
-    
+    const [news, mountEvent, loading] = useUnit([$news, pageMounted, getNewsFx.pending])
+
     const { id } = useParams()
-    
     const { pathname } = useLocation()
-        
     const path = pathname.split('/')[1]
+    
     setPath(`/${path}`)
     
-    onMount(() => handlePageMounted(id)) 
-
+    onMount(() => mountEvent(id))
+    
     return (
         <Layout.Page>
-            <Layout.Container>
-                <Show when={!loading()} fallback={<Loader/>}>
+            <Show when={!loading()} fallback={<Loader />}>
+                <Layout.Container>
                     <BreadCrumbs />
                     <div class={styles.news}>
                         <div class={styles.news_category}>{news().category}</div>
@@ -36,9 +33,8 @@ export const NewsItem = () => {
                         <div class={styles.news_description}>{news().description}</div>
                         <div class={styles.news_date}>{convertDate(news().date)}</div>
                     </div>
-                </Show>
-            </Layout.Container>
+                </Layout.Container>
+            </Show>
         </Layout.Page>
     )
 }
-
