@@ -1,18 +1,9 @@
-import { createEffect, createStore, createEvent, sample } from 'effector'
+import { createEvent, createStore } from 'effector'
 import type { EquipmentData } from 'shared/model'
-import { fetchEquipment } from 'pages/equipment/api'
+import { provideStoreToSample, getDataFx } from 'pages/lib/fetchService/model'
 
-export const pageMounted = createEvent()
-
-export const getEquipmentFx = createEffect<void, EquipmentData[]>()
-getEquipmentFx.use(fetchEquipment)
-
+export const pageMounted = createEvent<string>()
 export const $equipment = createStore<EquipmentData[]>([])
-.on(getEquipmentFx.doneData, (_, data) => data)
+.on(getDataFx.doneData, (_, data) => data)
 
-sample({
-    clock: pageMounted,
-    source: $equipment,
-    filter: (state) => state.length === 0,
-    target: getEquipmentFx
-})
+provideStoreToSample(pageMounted, $equipment)

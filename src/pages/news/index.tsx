@@ -4,17 +4,18 @@ import { BreadCrumbs } from "features/breadcrumbs"
 import { NewsList } from "entities/news/ui"
 import { Loader } from "shared/ui/loader"
 import { useUnit } from 'effector-solid'
-import { $news, pageMounted, getNewstFx } from './model'
+import { pageMounted, getDataFx } from 'pages/lib/fetchService/model'
+import { $news } from './model'
+import { withLocation } from 'shared/hocs'
 
-export const News = () => {
+export const News = withLocation(() => {
 
-    const [news, mountEvent, loading] = useUnit([$news, pageMounted, getNewstFx.pending])
-    const doneData = !loading()
-    onMount(() => mountEvent())
+    const [news, mountEvent, loading] = useUnit([$news, pageMounted, getDataFx.pending])
+    onMount(() => mountEvent('/news'))
 
     return (
         <Layout.Page>
-            <Show when={doneData} fallback={<Loader />}>
+            <Show when={!loading()} fallback={<Loader />}>
                 <Layout.Container>
                     <BreadCrumbs />
                     <Layout.Content columns={3} columnWidth="1fr">
@@ -24,4 +25,4 @@ export const News = () => {
             </Show>
         </Layout.Page>
     )
-}
+})

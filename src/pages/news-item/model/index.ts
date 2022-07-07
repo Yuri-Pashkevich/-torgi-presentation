@@ -30,5 +30,8 @@ export const $news = createStore<News>(initStore)
 
 sample({
     clock: pageMounted,
+    source: $news,
+    filter: (state, clockData) => state.id !== +clockData,
+    fn: (_, clockData) => clockData,
     target: getNewsFx,
 })

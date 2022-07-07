@@ -1,23 +1,17 @@
 import { Show, onMount } from 'solid-js'
-import { useLocation } from 'solid-app-router'
 import { convertDate } from 'shared/helpers/convertDate'
 import { Layout } from 'shared/ui/layout'
 import styles from './index.module.scss'
 import { Button } from 'shared/ui/button/button'
 import { BreadCrumbs } from 'features/breadcrumbs'
-import { setPath } from 'shared/helpers/handleMenuSelect'
 import { Loader } from 'shared/ui/loader'
 import { pageMounted, $auction, getAuctionFx } from './model'
 import { useUnit } from 'effector-solid'
+import { withLocation } from 'shared/hocs'
 
-export const Auction = () => {
+export const Auction = withLocation(({ pathname }) => {
 
     const [auction, mountEvent, loading] = useUnit([$auction, pageMounted, getAuctionFx.pending])
-
-    const { pathname } = useLocation()
-    const path = pathname.split('/')[1]
-
-    setPath(`/${path}`)
     
     onMount(() => mountEvent(pathname))
     
@@ -81,4 +75,4 @@ export const Auction = () => {
             </Show>
         </Layout.Page>
     )
-}
+})

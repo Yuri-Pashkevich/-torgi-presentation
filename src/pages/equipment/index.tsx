@@ -4,14 +4,17 @@ import { Show, onMount } from 'solid-js'
 import { BreadCrumbs } from "features/breadcrumbs"
 import { Loader } from 'shared/ui/loader'
 import { useUnit } from "effector-solid"
-import { $equipment, pageMounted, getEquipmentFx } from "./model"
+import { $equipment, pageMounted } from "./model"
+import { getDataFx } from "pages/lib/fetchService/model"
+import { withLocation } from "shared/hocs"
 
-export const Equipment = () => {
 
-    const [equipment, mountEvent, loading] = useUnit([$equipment, pageMounted, getEquipmentFx.pending])
+export const Equipment = withLocation(() => {
+
+    const [equipment, mountEvent, loading] = useUnit([$equipment, pageMounted, getDataFx.pending])
 
     onMount(() => {
-        mountEvent()
+        mountEvent('/equipment')
     })
 
     return (
@@ -26,4 +29,5 @@ export const Equipment = () => {
             </Show>
         </Layout.Page>
     )
-}
+})
+
