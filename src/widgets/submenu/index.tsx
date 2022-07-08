@@ -1,5 +1,5 @@
 import { Container } from 'shared/ui/layout'
-import { For, onMount } from "solid-js"
+import { For } from "solid-js"
 import styles from './index.module.scss'
 import { Link } from "solid-app-router"
 import { setPath } from 'shared/helpers/handleMenuSelect'
@@ -12,6 +12,7 @@ const submenuItems = [
     { category: 'Электронные торги', href: '/e-trades' },
     { category: 'Новоcти', href: '/news' },
 ]
+
 let menuList: HTMLUListElement | undefined
 
 export const SubMenu = () => {

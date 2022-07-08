@@ -2,7 +2,7 @@ import { Show } from 'solid-js';
 import { Link, useParams, useLocation } from 'solid-app-router'
 import { AiFillHome } from 'solid-icons/ai'
 import styles from './index.module.scss'
-import { state } from 'shared/model'
+import { $auction } from 'pages/auction/model';
 import { $news } from 'pages/news-item/model'
 import { setPath } from 'shared/helpers/handleMenuSelect';
 import { convertCategory } from 'shared/helpers/convertCategory';
@@ -11,7 +11,7 @@ import { useUnit } from 'effector-solid';
 
 export const BreadCrumbs = () => {
 
-    const [news] = useUnit([$news])
+    const [news, auction] = useUnit([$news, $auction])
 
     const { pathname } = useLocation()
     const path = pathname.split('/')[1]
@@ -28,7 +28,7 @@ export const BreadCrumbs = () => {
                 / <Link href={`/${path}`} onClick={() => setPath(`/${path}`)}>{convertCategory(path)}</Link>
             </Show>
             <Show when={id}>
-               / <div class={styles.lot}> {path === 'news' ? news()?.name : state.auction?.name}</div>
+               / <div class={styles.lot}> {path === 'news' ? news()?.name : auction()?.name}</div>
             </Show>
         </div>
     )

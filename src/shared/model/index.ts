@@ -1,7 +1,4 @@
-import { createStore } from 'solid-js/store'
-import { createSignal } from 'solid-js'
-
-export type ObjectData = {
+export type PageData = {
     id: number
     category: string
     lot_number: number
@@ -18,8 +15,6 @@ export type ObjectData = {
     auction_end: string
 }
 
-export type EquipmentData = ObjectData
-
 export type NewsData = {
     id: number
     category: string
@@ -28,32 +23,7 @@ export type NewsData = {
     description: string
 }
 
-export interface InitStore {
-    all: ObjectData[] | [] 
-    estate: ObjectData[] | []
-    transport: ObjectData[] | []
-    equipment: ObjectData[] | []
-    furniture: ObjectData[] | []
-    electronics: ObjectData[] | []
-    building: ObjectData[] | []
-    intangible: ObjectData[] | []
-    news: NewsData[] | []
-    auction: ObjectData | null
-    isAuctionLoaded: boolean
-}
-
-export const [state, setState] = createStore<InitStore>({
-    all: [],
-    estate: [],
-    transport: [],
-    equipment: [],
-    furniture: [],
-    electronics: [],
-    building: [],
-    intangible: [],
-    news: [],
-    auction: null,
-    isAuctionLoaded: false
-})
-
-export const [isLoaded, setIsLoaded] = createSignal(false)
+export type EquipmentData = PageData
+export type EstateData = PageData
+export type MainData = PageData
+export type TransportData = PageData

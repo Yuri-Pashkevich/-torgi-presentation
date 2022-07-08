@@ -3,15 +3,14 @@ import { NewsSidebar } from "widgets/newsSidebar"
 import { Carousel } from 'widgets/carousel'
 import { Layout } from "shared/ui/layout"
 import { LotList } from "entities/lot/ui/lot-list"
-import { getDataFx } from 'pages/lib/fetchService/model'
-import { $all, pageMounted } from './model'
+import { $all, pageMounted, getAllFx } from './model'
 import { useUnit } from 'effector-solid'
 import { Loader } from 'shared/ui/loader'
 import styles from './index.module.scss'
 
 export const Main: Component = () => {
 
-    const [allLots, mountEvent, loading] = useUnit([$all, pageMounted, getDataFx.pending])
+    const [allLots, mountEvent, loading] = useUnit([$all, pageMounted, getAllFx.pending])
 
     onMount(() => mountEvent('/all'))
 

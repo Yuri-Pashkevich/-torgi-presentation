@@ -5,6 +5,7 @@ import { Main } from "./main";
 import { News } from "./news";
 import { NewsItem } from "./news-item";
 import { Transport } from "./transport";
+import { Furniture } from "./furniture";
 
 export {
     Auction,
@@ -13,5 +14,6 @@ export {
     Main,
     News,
     NewsItem,
-    Transport
+    Transport,
+    Furniture
 }

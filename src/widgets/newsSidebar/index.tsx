@@ -10,9 +10,7 @@ export const NewsSidebar = () => {
 
     const [news, mountEvent, loading] = useUnit([$news, pageMounted, getNewsFx.pending])
 
-    onMount(() => { mountEvent()
-        console.log('mount')
-    }) 
+    onMount(() => mountEvent('/news')) 
 
     return (
         <aside class={styles.sidebar}>

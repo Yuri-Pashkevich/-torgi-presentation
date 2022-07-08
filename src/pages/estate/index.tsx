@@ -3,14 +3,13 @@ import { LotList } from "entities/lot/ui/lot-list"
 import { Layout } from "shared/ui/layout"
 import { BreadCrumbs } from "features/breadcrumbs"
 import { Loader } from 'shared/ui/loader'
-import { getDataFx } from 'pages/lib/fetchService/model'
-import { $estate, pageMounted } from './model'
+import { $estate, pageMounted, getEstateFx } from './model'
 import { withLocation } from 'shared/hocs'
 import { useUnit } from 'effector-solid'
 
 export const Estate = withLocation(() => {
 
-    const [estate, mountEvent, loading] = useUnit([$estate, pageMounted, getDataFx.pending])
+    const [estate, mountEvent, loading] = useUnit([$estate, pageMounted, getEstateFx.pending])
 
     onMount(() => mountEvent('/estate'))
 

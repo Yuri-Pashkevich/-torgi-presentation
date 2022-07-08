@@ -13,8 +13,6 @@ export const convertDate = (date: string | undefined) => {
         .toLocaleString('ru', options)
         .split(',')
         formattedDate.splice(1, 0, ' в').join('')
-        // const hours = (new Date(date).getHours() < 10 ? '0' : '') + new Date(date).getHours()
-        // const minutes =  (new Date(date).getMinutes() < 10 ? '0' : '') + new Date(date).getMinutes()
         return formattedDate
     }
     return null

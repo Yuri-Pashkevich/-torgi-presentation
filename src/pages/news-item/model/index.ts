@@ -1,16 +1,7 @@
 import { createEvent, createStore, sample, createEffect } from "effector"
-import { fetchNews } from "pages/news-item/api"
+import { fetchNewsItem } from "shared/api"
+import type { NewsData } from "shared/model"
 
-export type News = {
-    id: number,
-    category: string,
-    date: string,
-    name: string,
-    description: string,
-}
-
-
-// effector store realization
 
 const initStore = {
     id: 0,
@@ -22,11 +13,12 @@ const initStore = {
 
 export const pageMounted = createEvent<string>()
 
-export const getNewsFx = createEffect<string, News>()
-getNewsFx.use(fetchNews)
+export const getNewsFx = createEffect<string, NewsData>()
+getNewsFx.use(fetchNewsItem)
 
-export const $news = createStore<News>(initStore)
+export const $news = createStore<NewsData>(initStore)
 .on(getNewsFx.doneData, (_, data) => data)
+
 
 sample({
     clock: pageMounted,

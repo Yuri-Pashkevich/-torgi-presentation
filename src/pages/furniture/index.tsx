@@ -1,16 +1,17 @@
 import { Show, onMount } from 'solid-js'
+import { LotList } from "entities/lot/ui/lot-list"
 import { Layout } from "shared/ui/layout"
 import { BreadCrumbs } from "features/breadcrumbs"
-import { NewsList } from "entities/news/ui"
-import { Loader } from "shared/ui/loader"
-import { useUnit } from 'effector-solid'
-import { $news, getNewsFx, pageMounted } from './model'
+import { Loader } from 'shared/ui/loader'
+import { $furniture, pageMounted, getFurnitureFx } from './model'
 import { withLocation } from 'shared/hocs'
+import { useUnit } from 'effector-solid'
 
-export const News = withLocation(() => {
+export const Furniture = withLocation(() => {
 
-    const [news, mountEvent, loading] = useUnit([$news, pageMounted, getNewsFx.pending])
-    onMount(() => mountEvent('/news'))
+    const [furniture, mountEvent, loading] = useUnit([$furniture, pageMounted, getFurnitureFx.pending])
+
+    onMount(() => mountEvent('/furniture'))
 
     return (
         <Layout.Page>
@@ -18,7 +19,7 @@ export const News = withLocation(() => {
                 <Layout.Container>
                     <BreadCrumbs />
                     <Layout.Content columns={3} columnWidth="1fr">
-                        <NewsList news={news} />
+                        <LotList data={furniture} />
                     </Layout.Content>
                 </Layout.Container>
             </Show>

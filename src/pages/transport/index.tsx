@@ -3,14 +3,15 @@ import { LotList } from "entities/lot/ui/lot-list"
 import { Layout } from "shared/ui/layout"
 import { BreadCrumbs } from "features/breadcrumbs"
 import { Loader } from 'shared/ui/loader'
-import { getTransportFx, $transport, pageMounted } from './model'
+import { $transport, pageMounted, getTransportFx } from './model'
 import { useUnit } from 'effector-solid'
+import { withLocation } from 'shared/hocs'
 
-export const Transport = () => {
+export const Transport = withLocation(() => {
 
     const [transport, mountEvent, loading] = useUnit([$transport, pageMounted, getTransportFx.pending])
 
-    onMount(() => mountEvent())
+    onMount(() => mountEvent('/transport'))
 
     return (
         <Layout.Page>
@@ -24,4 +25,4 @@ export const Transport = () => {
             </Show>
         </Layout.Page>
     )
-}
+})

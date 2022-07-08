@@ -1,11 +1,11 @@
 import { createStore, createEffect, createEvent, sample } from 'effector'
-import { ObjectData } from 'shared/model'
-import { fetchAuction } from 'pages/auction/api'
+import { PageData } from 'shared/model'
+import { fetchData } from 'shared/api'
 
 export const pageMounted = createEvent<string>()
 
-export const getAuctionFx = createEffect<string, ObjectData>()
-getAuctionFx.use(fetchAuction)
+export const getAuctionFx = createEffect<string, PageData>()
+getAuctionFx.use(fetchData)
 
 const initState = {
     id: 0,
@@ -24,10 +24,14 @@ const initState = {
     auction_end: ''
 }
 
-export const $auction = createStore<ObjectData>(initState)
+export const $auction = createStore<PageData>(initState)
 .on(getAuctionFx.doneData, (_, data) => data)
+
 
 sample({
     clock: pageMounted,
+    source: $auction,
+    filter: (state, clockData) => state.id !== +clockData,
+    fn: (_, clockData) => clockData,
     target: getAuctionFx
 })

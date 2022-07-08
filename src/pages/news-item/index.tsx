@@ -1,24 +1,20 @@
 import { Show, onMount } from 'solid-js'
 import { Layout } from "shared/ui/layout"
 import { BreadCrumbs } from 'features/breadcrumbs'
-import { useLocation, useParams } from "solid-app-router"
+import { useParams } from "solid-app-router"
 import styles from './index.module.scss'
-import { setPath } from 'shared/helpers/handleMenuSelect'
 import { Loader } from 'shared/ui/loader'
 import { convertDate } from 'shared/helpers/convertDate'
 import { useUnit } from 'effector-solid/scope'
 import { $news, getNewsFx, pageMounted } from './model'
+import { withLocation } from 'shared/hocs'
 
 
-export const NewsItem = () => {
+export const NewsItem = withLocation(() => {
 
     const [news, mountEvent, loading] = useUnit([$news, pageMounted, getNewsFx.pending])
 
     const { id } = useParams()
-    const { pathname } = useLocation()
-    const path = pathname.split('/')[1]
-    
-    setPath(`/${path}`)
     
     onMount(() => mountEvent(id))
     
@@ -37,4 +33,4 @@ export const NewsItem = () => {
             </Show>
         </Layout.Page>
     )
-}
+})

@@ -1,18 +1,19 @@
-import { createEffect, createStore, sample, createEvent } from 'effector'
-import type { ObjectData } from 'shared/model'
-import { fetchTransport } from 'pages/transport/api'
+import { createStore, createEvent, createEffect, sample } from 'effector'
+import { fetchData } from 'shared/api'
+import type { TransportData } from 'shared/model'
 
-export const pageMounted = createEvent()
+export const pageMounted = createEvent<string>()
 
-export const getTransportFx = createEffect<void, ObjectData[]>()
-getTransportFx.use(fetchTransport)
+export const getTransportFx = createEffect<string, TransportData[]>()
+getTransportFx.use(fetchData)
 
-export const $transport = createStore<ObjectData[]>([])
+export const $transport = createStore<TransportData[]>([])
 .on(getTransportFx.doneData, (_, data) => data)
+
+const isStoreNotEmpty = $transport.map(it => it.length === 0)
 
 sample({
     clock: pageMounted,
-    source: $transport,
-    filter: (state) => state.length === 0,
+    filter: isStoreNotEmpty,
     target: getTransportFx
 })
