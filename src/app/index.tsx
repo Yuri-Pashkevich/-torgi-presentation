@@ -5,7 +5,8 @@ import { Header } from 'widgets/header'
 import { Footer } from 'widgets/footer'
 import { Menu } from 'widgets/menu'
 import { SubMenu } from 'widgets/submenu'
-import { Main, Estate, Equipment, Auction, News, NewsItem, Transport, Furniture } from 'pages'
+import { Main, Estate, Equipment, Auction, News, NewsItem, Transport, Furniture, Electronics, Building, Intangible } from 'pages'
+import { SearchResults } from "features/search"
 import styles from './index.module.scss'
 
 
@@ -17,6 +18,7 @@ export const App: Component = () => {
         <Header />
         <Menu />
         <SubMenu />
+        <SearchResults />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/estate" element={<Estate />} />
@@ -26,6 +28,9 @@ export const App: Component = () => {
           <Route path="/news/:id" element={<NewsItem />} />
           <Route path="/transport" element={<Transport />} />
           <Route path="/furniture" element={<Furniture />}/>
+          <Route path="/electronics" element={<Electronics />}/>
+          <Route path="/building" element={<Building />}/>
+          <Route path="/intangible" element={<Intangible />}/>
         </Routes>
         <Footer />
       </Layout>

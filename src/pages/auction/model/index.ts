@@ -2,7 +2,7 @@ import { createStore, createEffect, createEvent, sample } from 'effector'
 import { PageData } from 'shared/model'
 import { fetchData } from 'shared/api'
 
-export const pageMounted = createEvent<string>()
+export const pageMounted = createEvent<string>() // /:section/:sectionId
 
 export const getAuctionFx = createEffect<string, PageData>()
 getAuctionFx.use(fetchData)
@@ -31,7 +31,7 @@ export const $auction = createStore<PageData>(initState)
 sample({
     clock: pageMounted,
     source: $auction,
-    filter: (state, clockData) => state.id !== +clockData,
+    filter: (state, clockData) => state.id !== +clockData.split('/')[2],
     fn: (_, clockData) => clockData,
     target: getAuctionFx
 })

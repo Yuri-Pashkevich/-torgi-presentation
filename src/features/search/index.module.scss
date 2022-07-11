@@ -1,3 +1,5 @@
+
+
 .search {
     width: 100%;
     position: relative;
@@ -16,5 +18,21 @@
             font-size: 1.5rem;
             fill: var(--grey-900);
         }
+    }
+}
+.search_results {
+    position: absolute;
+    background-color: var(--white);
+    z-index: 99;
+    top: 11.85rem;
+    width: 1140px;
+    padding: 1.25rem;
+    left: calc(50% - 570px);
+}
+
+.search_result {
+    display: block;
+    &:not(:last-child) {
+        margin-bottom: 1.25rem;
     }
 }

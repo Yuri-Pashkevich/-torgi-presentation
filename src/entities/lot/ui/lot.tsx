@@ -1,9 +1,9 @@
 import styles from './index.module.scss'
 import { convertDate } from 'shared/helpers/convertDate'
 import { Link } from 'solid-app-router'
-import { ObjectData } from 'shared/model'
+import { PageData } from 'shared/model'
 
-interface LotProps extends ObjectData {}
+interface LotProps extends PageData {}
 
 export const Lot = ({ id, category, lot_number, initial_price, deposit, address, name, image, description, price, request_start, request_end, auction_start, auction_end }: LotProps) => {
 

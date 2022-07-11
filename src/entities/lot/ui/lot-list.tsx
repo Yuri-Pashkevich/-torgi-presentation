@@ -1,9 +1,9 @@
 import { Accessor, For } from 'solid-js'
 import { Lot } from 'entities/lot/ui/lot'
-import { ObjectData } from 'shared/model'
+import { PageData } from 'shared/model'
 
 interface LotListProps {
-    data: Accessor<ObjectData[]> 
+    data: Accessor<PageData[]> 
     count?: number
 }
 

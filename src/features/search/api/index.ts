@@ -4,7 +4,7 @@ export const fetchLots = async (lotName: string) => {
         const res = await fetch('/all', {
             method: 'POST',
             body: JSON.stringify({
-                name: lotName
+                lotName: lotName
             })
         })
         return res.json()

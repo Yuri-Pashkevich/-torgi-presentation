@@ -12,9 +12,9 @@ import { withLocation } from 'shared/hocs'
 export const Auction = withLocation(({ pathname }) => {
 
     const [auction, mountEvent, loading] = useUnit([$auction, pageMounted, getAuctionFx.pending])
-    
+
     onMount(() => mountEvent(pathname))
-    
+
     return (
         <Layout.Page>
             <Show when={!loading()} fallback={<Loader />}>

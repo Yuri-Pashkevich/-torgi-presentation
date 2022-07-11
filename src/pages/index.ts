@@ -1,11 +1,14 @@
-import { Auction } from "./auction";
-import { Equipment } from "./equipment";
-import { Estate } from "./estate";
-import { Main } from "./main";
-import { News } from "./news";
-import { NewsItem } from "./news-item";
-import { Transport } from "./transport";
-import { Furniture } from "./furniture";
+import { Auction } from "./auction"
+import { Equipment } from "./equipment"
+import { Estate } from "./estate"
+import { Main } from "./main"
+import { News } from "./news"
+import { NewsItem } from "./news-item"
+import { Transport } from "./transport"
+import { Furniture } from "./furniture"
+import { Electronics } from "./electronics"
+import { Building } from "./building"
+import { Intangible } from "./intangible"
 
 export {
     Auction,
@@ -15,5 +18,8 @@ export {
     News,
     NewsItem,
     Transport,
-    Furniture
+    Furniture,
+    Electronics,
+    Building,
+    Intangible
 }
