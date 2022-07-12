@@ -1,13 +1,12 @@
 import { Input } from "shared/ui/input"
 import styles from './index.module.scss'
 import { AiOutlineSearch } from 'solid-icons/ai'
-import { $filteredLots, getLotsFx, searchValue } from './model'
+import { $filteredLots, searchValue } from './model'
 import { useUnit } from "effector-solid"
-import { LotList } from "entities/lot/ui/lot-list"
-import { Layout } from "shared/ui/layout"
-import { createSignal, For } from "solid-js"
+import { For } from "solid-js"
 import { Link } from "solid-app-router"
-import { $isSearchList, hideSearchList } from "./model"
+import { $isSearchList, hideList, hideSearchList } from "./model" 
+import { IoCloseOutline } from 'solid-icons/io'
 
 
 export const Search = () => {
@@ -26,17 +25,29 @@ export const Search = () => {
 
 export const SearchResults = () => {
 
-    const [filteredLots, isDataExist, hideList] = useUnit([$filteredLots, $isSearchList, hideSearchList])
+    const [filteredLots, isDataExist] = useUnit([$filteredLots, $isSearchList])
 
     return (
         <>
-            {isDataExist() && <div class={styles.search_results}>
-                <For each={filteredLots()} fallback={<p>loading...</p>}>{({ name, category, id }) =>
-                    <Link class={styles.search_result} href={`/${category}/${id}`} onClick={() => hideList()}>{name}</Link>
-                }
-                </For>
-
-            </div>}
+            {isDataExist() &&
+                <>
+                    <div class={styles.search_bgc}></div>
+                    <div class={styles.search_results}>
+                        <div class={styles.search_wrapper}>
+                            <Search/>
+                            <IoCloseOutline class={styles.search_close} onClick={() => hideSearchList()}/>
+                        </div>
+                        <For each={filteredLots().filter((it, i) => i < 20)} fallback={<p>loading...</p>}>{({ name, category, id }) =>
+                            <Link class={styles.search_result}
+                                href={`/${category}/${id}`}
+                                onClick={hideList.bind(null, `/${category}/${id}`)}>
+                                {name}
+                            </Link>
+                        }
+                        </For>
+                    </div>
+                </>
+            }
         </>
     )
 }

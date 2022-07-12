@@ -1,6 +1,7 @@
 import { createEffect, createStore, sample, createEvent } from 'effector'
 import type { PageData } from 'shared/model'
 import { fetchLots } from 'features/search/api'
+import { createSignal } from 'solid-js'
 
 export const searchValue = createEvent<string>()
 
@@ -12,7 +13,14 @@ getLotsFx.use(fetchLots)
 export const $filteredLots = createStore<PageData[]>([])
 .on(getLotsFx.doneData, (_, data) => data)
 
+export const [searchPathname, setSearchPathname] = createSignal<string>('')
+
 export const hideSearchList = createEvent()
+
+export const hideList = (pathname: string) => {
+    hideSearchList()
+    setSearchPathname(pathname)
+}
 
 export const $isSearchList = createStore(false)
 .on(getLotsFx.doneData, () => true)

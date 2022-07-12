@@ -18,7 +18,6 @@ export const App: Component = () => {
         <Header />
         <Menu />
         <SubMenu />
-        <SearchResults />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/estate" element={<Estate />} />
@@ -34,6 +33,7 @@ export const App: Component = () => {
         </Routes>
         <Footer />
       </Layout>
+        <SearchResults />
     </div>
   )
 }

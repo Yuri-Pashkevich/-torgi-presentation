@@ -1,4 +1,4 @@
-import { Show, onMount } from 'solid-js'
+import { Show, onMount, createEffect, on } from 'solid-js'
 import { convertDate } from 'shared/helpers/convertDate'
 import { Layout } from 'shared/ui/layout'
 import styles from './index.module.scss'
@@ -8,12 +8,17 @@ import { Loader } from 'shared/ui/loader'
 import { pageMounted, $auction, getAuctionFx } from './model'
 import { useUnit } from 'effector-solid'
 import { withLocation } from 'shared/hocs'
+import { searchPathname } from 'features/search/model'
 
 export const Auction = withLocation(({ pathname }) => {
 
     const [auction, mountEvent, loading] = useUnit([$auction, pageMounted, getAuctionFx.pending])
 
     onMount(() => mountEvent(pathname))
+
+    createEffect(on(searchPathname, (a) => {
+        mountEvent(a)
+    }, { defer: true }))
 
     return (
         <Layout.Page>
