@@ -1,4 +1,4 @@
-import { For, onMount, Accessor } from 'solid-js'
+import { For, Accessor } from 'solid-js'
 import styles from './index.module.scss'
 import { Link } from 'solid-app-router'
 import { convertDate } from 'shared/helpers/convertDate'

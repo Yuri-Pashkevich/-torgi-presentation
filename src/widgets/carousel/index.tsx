@@ -7,24 +7,10 @@ import autoplay from "solid-slider/plugins/autoplay"
 import styles from './index.module.scss'
 
 
-
 export const Carousel = () => {
-    const [pause, togglePause] = createSignal(false);
-    const [
-        slider,
-        {
-            current,
-            next,
-            prev,
-            moveTo,
-        },
-    ] = createSlider(
-        {
-            loop: true
-        },
-        autoplay(4000, { pause })
-    );
-    slider;
+    const [pause] = createSignal(false);
+    const [slider, { next, prev }] = createSlider({ loop: true }, autoplay(4000, { pause }))
+    slider
     return (
         <div class={styles.slider}>
             <div use:slider>

@@ -33,7 +33,7 @@ export const App: Component = () => {
         </Routes>
         <Footer />
       </Layout>
-        <SearchResults />
+      <SearchResults />
     </div>
   )
 }

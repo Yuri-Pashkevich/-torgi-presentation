@@ -1,21 +1,21 @@
 import { Input } from "shared/ui/input"
 import styles from './index.module.scss'
 import { AiOutlineSearch } from 'solid-icons/ai'
-import { $filteredLots, searchValue } from './model'
+import { $filteredLots } from './model'
 import { useUnit } from "effector-solid"
 import { For } from "solid-js"
 import { Link } from "solid-app-router"
-import { $isSearchList, hideList, hideSearchList } from "./model" 
+import { $isSearchList, hideList, hideSearchList, searchValue, $value } from "./model" 
 import { IoCloseOutline } from 'solid-icons/io'
 
 
 export const Search = () => {
 
-    const [value] = useUnit([searchValue])
+    const [value] = useUnit([$value])
 
     return (
         <div class={styles.search}>
-            <Input onChange={(e: any) => value((e.currentTarget.value).toLowerCase())} />
+            <Input type='text' value={value()} onInput={(e) => searchValue((e.currentTarget.value).toLowerCase())} />
             <div class={styles.icon_wrap}>
                 <AiOutlineSearch />
             </div>
