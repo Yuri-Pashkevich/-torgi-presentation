@@ -17,6 +17,7 @@ export const $filteredLots = createStore<PageData[]>([])
 export const [searchPathname, setSearchPathname] = createSignal<string>('')
 
 export const hideSearchList = createEvent()
+export const showSearchList = createEvent()
 
 export const hideList = (pathname: string) => {
   hideSearchList()
@@ -26,6 +27,7 @@ export const hideList = (pathname: string) => {
 export const $isSearchList = createStore(false)
   .on(getLotsFx.doneData, () => true)
   .on(hideSearchList, () => false)
+  .on(showSearchList, () => true)
 
 $isSearchList.watch((store) => console.log(store))
 
