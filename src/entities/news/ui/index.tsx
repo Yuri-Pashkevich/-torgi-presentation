@@ -30,7 +30,7 @@ const NewsItem = ({ id, category, date, name }: NewsItemProps) => {
     return (
         <Link href={`/news/${id}`} class={styles.news_item}>
             <div class={styles.image_box}>
-                <img src={newsImg} alt="img" />
+                <img src="https://raw.githubusercontent.com/Yuri-Pashkevich/-torgi-presentation/gh-pages/assets/1.6df1eba8.jpg" alt="img" />
             </div>
             <ul class={styles.text_box}>
                 <li>{category}</li>

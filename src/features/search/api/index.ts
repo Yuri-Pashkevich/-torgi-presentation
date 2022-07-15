@@ -1,5 +1,4 @@
 export const fetchLots = async (lotName: string) => {
-    console.log('fetching!')
     try {
         const res = await fetch('/all', {
             method: 'POST',

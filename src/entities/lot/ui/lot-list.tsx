@@ -9,7 +9,6 @@ interface LotListProps {
 
 export const LotList = ({ data, count }: LotListProps ) => {
 
-    console.log('render lotlist')
 
     if(count) {
         return (
