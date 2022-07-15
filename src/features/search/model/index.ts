@@ -24,17 +24,15 @@ export const hideList = (pathname: string) => {
   setSearchPathname(pathname)
 }
 
-export const $isSearchList = createStore(false)
-  .on(getLotsFx.doneData, () => true)
+export const $toggleList = createStore(false)
   .on(hideSearchList, () => false)
   .on(showSearchList, () => true)
-
-$isSearchList.watch((store) => console.log(store))
 
 const debouncedSearchValue = createDebounce(searchValue, 500)
 
 sample({
   clock: debouncedSearchValue,
   filter: (value) => value !== '',
+  fn: (value) => value.toLocaleLowerCase(),
   target: getLotsFx
 })
