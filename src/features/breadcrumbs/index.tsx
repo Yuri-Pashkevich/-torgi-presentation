@@ -25,7 +25,7 @@ export const BreadCrumbs = () => {
                 Главная 
             </Link>
             <Show when={path}>
-                / <Link href={`/${path}`} onClick={() => setPath(`/${path}`)}>{convertCategory(path)}</Link>
+                / <Link href={`/${path}`} class={styles.category} onClick={() => setPath(`/${path}`)}>{convertCategory(path)}</Link>
             </Show>
             <Show when={id}>
                / <div class={styles.lot}> {path === 'news' ? news()?.name : auction()?.name}</div>
