@@ -23,7 +23,6 @@ export const Carousel = () => {
                             отказ от продажи влечет возврат задатка в двойном размере
                         </div>
                     </div>
-
                 </div>
                 <div class={`${styles.slide2} ${styles.slide}`}>
                     <div class={styles.mask} />
@@ -35,12 +34,10 @@ export const Carousel = () => {
                             каждая ставка обеспечена задатком покупателя
                         </div>
                     </div>
-
                 </div>
                 <div class={`${styles.slide3} ${styles.slide}`}>
                     <div class={styles.mask} />
                     <div class={styles.title}>
-
                         <h2>Прозрачность торгов</h2>
                         <div>
                             Любой пользователь в любое время может получить информацию о ходе и результатах торгов

@@ -91,7 +91,7 @@ const estate = [
 
 const transport = [
     {   
-        id: 7, category: 'transport', lot_number: 25084, initial_price: 937040.00, address: 'Лидский район, Дубровенский с/с, д. Огородники, ул. Новая, 1В', name: 'Здание гостиницы, д. Огородники', image: 'https://v-grand.ru/wp-content/uploads/2018/12/proektirovanie-gostinic.jpg',
+        id: 7, category: 'transport', lot_number: 25084, initial_price: 937040.00, address: 'Лидский район, Дубровенский с/с, д. Огородники, ул. Новая, 1В', name: 'Здание гостиницы, д. Огородники', image: 'https://www.hardrockhotels.com/files/5829/SHRC_Hollywood_Guitar03.jpeg',
         deposit: 93704.00, description: 'Победитель торгов возмещает стоимость затрат на проведение аукциона согласно прейскуранту (https://torgi.gov.by/assets/docs/priceList/preyskurant.docx) от фактической цены продажи лота, которая списывается с суммы внесенного Победителем аукциона задатка. Оставшаяся сумма задатка засчитывается в счет оплаты предмета аукциона. Возмещение затрат по организации и проведению аукциона победитель осуществляет не позднее 5 рабочих дней с момента завершения торгов.  Дополнительная инф. +375293377226',
         request_start: '2022-06-20T09:00:54.578Z', request_end: '2022-07-07T17:00:54.578Z', auction_start: '2022-07-08T11:00:54.578Z', auction_end: ''
     },
@@ -114,7 +114,7 @@ const transport = [
 
 const equipment = [
     {   
-        id: 11, category: 'equipment', lot_number: 25084, initial_price: 937040.00, address: 'Лидский район, Дубровенский с/с, д. Огородники, ул. Новая, 1В', name: 'Здание гостиницы, д. Огородники', image: 'https://v-grand.ru/wp-content/uploads/2018/12/proektirovanie-gostinic.jpg',
+        id: 11, category: 'equipment', lot_number: 25084, initial_price: 937040.00, address: 'Лидский район, Дубровенский с/с, д. Огородники, ул. Новая, 1В', name: 'Здание гостиницы, д. Огородники', image: 'https://www.hardrockhotels.com/files/5829/SHRC_Hollywood_Guitar03.jpeg',
         deposit: 93704.00, description: 'Победитель торгов возмещает стоимость затрат на проведение аукциона согласно прейскуранту (https://torgi.gov.by/assets/docs/priceList/preyskurant.docx) от фактической цены продажи лота, которая списывается с суммы внесенного Победителем аукциона задатка. Оставшаяся сумма задатка засчитывается в счет оплаты предмета аукциона. Возмещение затрат по организации и проведению аукциона победитель осуществляет не позднее 5 рабочих дней с момента завершения торгов.  Дополнительная инф. +375293377226',
         request_start: '2022-06-20T09:00:54.578Z', request_end: '2022-07-07T17:00:54.578Z', auction_start: '2022-07-08T11:00:54.578Z', auction_end: ''
     },
@@ -142,7 +142,7 @@ const equipment = [
 
 const furniture = [
     {   
-        id: 16, category: 'furniture', lot_number: 25084, initial_price: 937040.00, address: 'Лидский район, Дубровенский с/с, д. Огородники, ул. Новая, 1В', name: 'Здание гостиницы, д. Огородники', image: 'https://v-grand.ru/wp-content/uploads/2018/12/proektirovanie-gostinic.jpg',
+        id: 16, category: 'furniture', lot_number: 25084, initial_price: 937040.00, address: 'Лидский район, Дубровенский с/с, д. Огородники, ул. Новая, 1В', name: 'Здание гостиницы, д. Огородники', image: 'https://www.hardrockhotels.com/files/5829/SHRC_Hollywood_Guitar03.jpeg',
         deposit: 93704.00, description: 'Победитель торгов возмещает стоимость затрат на проведение аукциона согласно прейскуранту (https://torgi.gov.by/assets/docs/priceList/preyskurant.docx) от фактической цены продажи лота, которая списывается с суммы внесенного Победителем аукциона задатка. Оставшаяся сумма задатка засчитывается в счет оплаты предмета аукциона. Возмещение затрат по организации и проведению аукциона победитель осуществляет не позднее 5 рабочих дней с момента завершения торгов.  Дополнительная инф. +375293377226',
         request_start: '2022-06-20T09:00:54.578Z', request_end: '2022-07-07T17:00:54.578Z', auction_start: '2022-07-08T11:00:54.578Z', auction_end: ''
     },
@@ -160,7 +160,7 @@ const furniture = [
 
 const electronics = [
     {   
-        id: 19, category: 'electronics', lot_number: 25084, initial_price: 937040.00, address: 'Лидский район, Дубровенский с/с, д. Огородники, ул. Новая, 1В', name: 'Здание гостиницы, д. Огородники', image: 'https://v-grand.ru/wp-content/uploads/2018/12/proektirovanie-gostinic.jpg',
+        id: 19, category: 'electronics', lot_number: 25084, initial_price: 937040.00, address: 'Лидский район, Дубровенский с/с, д. Огородники, ул. Новая, 1В', name: 'Здание гостиницы, д. Огородники', image: 'https://www.hardrockhotels.com/files/5829/SHRC_Hollywood_Guitar03.jpeg',
         deposit: 93704.00, description: 'Победитель торгов возмещает стоимость затрат на проведение аукциона согласно прейскуранту (https://torgi.gov.by/assets/docs/priceList/preyskurant.docx) от фактической цены продажи лота, которая списывается с суммы внесенного Победителем аукциона задатка. Оставшаяся сумма задатка засчитывается в счет оплаты предмета аукциона. Возмещение затрат по организации и проведению аукциона победитель осуществляет не позднее 5 рабочих дней с момента завершения торгов.  Дополнительная инф. +375293377226',
         request_start: '2022-06-20T09:00:54.578Z', request_end: '2022-07-07T17:00:54.578Z', auction_start: '2022-07-08T11:00:54.578Z', auction_end: ''
     },
@@ -188,7 +188,7 @@ const electronics = [
 
 const building = [
     {   
-        id: 24, category: 'building', lot_number: 25084, initial_price: 937040.00, address: 'Лидский район, Дубровенский с/с, д. Огородники, ул. Новая, 1В', name: 'Здание гостиницы, д. Огородники', image: 'https://v-grand.ru/wp-content/uploads/2018/12/proektirovanie-gostinic.jpg',
+        id: 24, category: 'building', lot_number: 25084, initial_price: 937040.00, address: 'Лидский район, Дубровенский с/с, д. Огородники, ул. Новая, 1В', name: 'Здание гостиницы, д. Огородники', image: 'https://www.hardrockhotels.com/files/5829/SHRC_Hollywood_Guitar03.jpeg',
         deposit: 93704.00, description: 'Победитель торгов возмещает стоимость затрат на проведение аукциона согласно прейскуранту (https://torgi.gov.by/assets/docs/priceList/preyskurant.docx) от фактической цены продажи лота, которая списывается с суммы внесенного Победителем аукциона задатка. Оставшаяся сумма задатка засчитывается в счет оплаты предмета аукциона. Возмещение затрат по организации и проведению аукциона победитель осуществляет не позднее 5 рабочих дней с момента завершения торгов.  Дополнительная инф. +375293377226',
         request_start: '2022-06-20T09:00:54.578Z', request_end: '2022-07-07T17:00:54.578Z', auction_start: '2022-07-08T11:00:54.578Z', auction_end: ''
     },
@@ -213,7 +213,7 @@ const building = [
         request_start: '2022-06-21T09:00:54.578Z', request_end: '2022-07-08T17:00:54.578Z', auction_start: '2022-07-09T11:00:54.578Z', auction_end: ''
     },
     {   
-        id: 29, category: 'building', lot_number: 25084, initial_price: 937040.00, address: 'Лидский район, Дубровенский с/с, д. Огородники, ул. Новая, 1В', name: 'Здание гостиницы, д. Огородники', image: 'https://v-grand.ru/wp-content/uploads/2018/12/proektirovanie-gostinic.jpg',
+        id: 29, category: 'building', lot_number: 25084, initial_price: 937040.00, address: 'Лидский район, Дубровенский с/с, д. Огородники, ул. Новая, 1В', name: 'Здание гостиницы, д. Огородники', image: 'https://www.hardrockhotels.com/files/5829/SHRC_Hollywood_Guitar03.jpeg',
         deposit: 93704.00, description: 'Победитель торгов возмещает стоимость затрат на проведение аукциона согласно прейскуранту (https://torgi.gov.by/assets/docs/priceList/preyskurant.docx) от фактической цены продажи лота, которая списывается с суммы внесенного Победителем аукциона задатка. Оставшаяся сумма задатка засчитывается в счет оплаты предмета аукциона. Возмещение затрат по организации и проведению аукциона победитель осуществляет не позднее 5 рабочих дней с момента завершения торгов.  Дополнительная инф. +375293377226',
         request_start: '2022-06-20T09:00:54.578Z', request_end: '2022-07-07T17:00:54.578Z', auction_start: '2022-07-08T11:00:54.578Z', auction_end: ''
     }
@@ -221,7 +221,7 @@ const building = [
 
 const intangible = [
     {   
-        id: 30, category: 'intangible', lot_number: 25084, initial_price: 937040.00, address: 'Лидский район, Дубровенский с/с, д. Огородники, ул. Новая, 1В', name: 'Здание гостиницы, д. Огородники', image: 'https://v-grand.ru/wp-content/uploads/2018/12/proektirovanie-gostinic.jpg',
+        id: 30, category: 'intangible', lot_number: 25084, initial_price: 937040.00, address: 'Лидский район, Дубровенский с/с, д. Огородники, ул. Новая, 1В', name: 'Здание гостиницы, д. Огородники', image: 'https://www.hardrockhotels.com/files/5829/SHRC_Hollywood_Guitar03.jpeg',
         deposit: 93704.00, description: 'Победитель торгов возмещает стоимость затрат на проведение аукциона согласно прейскуранту (https://torgi.gov.by/assets/docs/priceList/preyskurant.docx) от фактической цены продажи лота, которая списывается с суммы внесенного Победителем аукциона задатка. Оставшаяся сумма задатка засчитывается в счет оплаты предмета аукциона. Возмещение затрат по организации и проведению аукциона победитель осуществляет не позднее 5 рабочих дней с момента завершения торгов.  Дополнительная инф. +375293377226',
         request_start: '2022-06-20T09:00:54.578Z', request_end: '2022-07-07T17:00:54.578Z', auction_start: '2022-07-08T11:00:54.578Z', auction_end: ''
     },
